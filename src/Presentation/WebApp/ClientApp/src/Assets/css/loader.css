@@ -1,0 +1,91 @@
+
+.loader, .inner-loader {
+    position: fixed;
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    background: linear-gradient(#f07e6e, #84cdfa, #5ad1cd);
+    animation: animate .5s linear infinite;
+    z-index: 1033;
+    top: 30%;
+    left: 44%
+}
+
+.inner-loader {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    top: 30%;
+    left: 44%
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loader span {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(#f07e6e, #84cdfa, #5ad1cd);
+}
+
+
+.loader:after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    background: #e24040;
+    border: solid white 10px;
+    border-radius: 50%;
+}
+
+
+.overlay {
+    width: 100%;
+    background: black;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    opacity: .5;
+    z-index: 1031;
+    left: 0;
+  }
+  
+  .popup {
+    position: fixed;
+    top: 30%;
+    width: 70%;
+    left: 15%;
+    z-index: 1032;
+    border-radius: .50rem;
+  }
+  
+  .closeX {
+    color: red;
+    font-size: 16pt;
+    font-weight: 700;
+    position: absolute;
+    cursor: pointer;
+    /* background-color: #343a40; */
+    border-radius: 50%;
+    width: 33px;
+    text-align: center;
+    border: 1px solid white;
+    right: 0;
+    top: 10;
+  }
+  
+  .heading {
+    border-bottom: 1px solid rgb(14, 13, 13);
+  }
+  
