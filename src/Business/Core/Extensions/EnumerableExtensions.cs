@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Core.Extensions
+﻿namespace ExpressCargo.Core.Extensions
 {
     public static class EnumerableExtensions
     {

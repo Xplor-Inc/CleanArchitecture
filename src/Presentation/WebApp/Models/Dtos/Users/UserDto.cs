@@ -1,6 +1,6 @@
-﻿using CleanArchitecture.Core.Enumerations;
+﻿using ExpressCargo.Core.Enumerations;
 
-namespace CleanArchitecture.WebApp.Models.Dtos.Users;
+namespace ExpressCargo.WebApp.Models.Dtos.Users;
 public class UserDto : AuditableDto
 {
     #region Properties

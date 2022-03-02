@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Core.Extensions;
+﻿namespace ExpressCargo.Core.Extensions;
 public static class IResultExtensions
 {
     public static string AddError<T>(this Result<T> result, string error)

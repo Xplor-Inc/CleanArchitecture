@@ -1,7 +1,7 @@
-using CleanArchitecture.SqlServer.Repositories;
-using CleanArchitecture.Core.Interfaces.Data;
+using ExpressCargo.SqlServer.Repositories;
+using ExpressCargo.Core.Interfaces.Data;
 
-namespace CleanArchitecture.SqlServer.Extensions;
+namespace ExpressCargo.SqlServer.Extensions;
 public static class IServiceCollectionExtensions
 {
     public static IServiceCollection AddSqlRepository(this IServiceCollection services)

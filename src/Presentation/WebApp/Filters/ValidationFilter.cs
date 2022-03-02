@@ -1,6 +1,6 @@
-﻿using CleanArchitecture.WebApp.Extensions.Validation;
+﻿using ExpressCargo.WebApp.Extensions.Validation;
 
-namespace CleanArchitecture.WebApp.Filters
+namespace ExpressCargo.WebApp.Filters
 {
     public class ValidationFilter : ActionFilterAttribute
     {

@@ -1,14 +1,14 @@
-﻿using CleanArchitecture.Core.Enumerations;
-using CleanArchitecture.Core.Interfaces.Conductors.Accounts;
-using CleanArchitecture.Core.Models.Configuration;
-using CleanArchitecture.Core.Models.Entities.Users;
-using CleanArchitecture.WebApp.Models.Dtos.Users;
+﻿using ExpressCargo.Core.Enumerations;
+using ExpressCargo.Core.Interfaces.Conductors.Accounts;
+using ExpressCargo.Core.Models.Configuration;
+using ExpressCargo.Core.Models.Entities.Users;
+using ExpressCargo.WebApp.Models.Dtos.Users;
 
-namespace CleanArchitecture.WebApp.EndPoints.Users;
+namespace ExpressCargo.WebApp.EndPoints.Users;
 
 [Route("api/1.0/users")]
 [AppAuthorize]
-public class UsersController : CleanArchitectureController
+public class UsersController : ExpressCargoController
 {
     public IAccountConductor            AccountConductor    { get; }
     private IMapper                     Mapper              { get; }

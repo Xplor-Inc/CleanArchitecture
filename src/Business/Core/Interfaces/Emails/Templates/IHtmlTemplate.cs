@@ -1,7 +1,7 @@
-﻿using CleanArchitecture.Core.Models.Entities.Enquiries;
-using CleanArchitecture.Core.Models.Entities.Users;
+﻿using ExpressCargo.Core.Models.Entities.Enquiries;
+using ExpressCargo.Core.Models.Entities.Users;
 
-namespace CleanArchitecture.Core.Interfaces.Emails.Templates;
+namespace ExpressCargo.Core.Interfaces.Emails.Templates;
 public interface IHtmlTemplate
 {
     string AccountActivation(User user);

@@ -1,6 +1,6 @@
-﻿using CleanArchitecture.Core.Models.Entities.Users;
+﻿using ExpressCargo.Core.Models.Entities.Users;
 
-namespace CleanArchitecture.Core.Interfaces.Conductors.Accounts;
+namespace ExpressCargo.Core.Interfaces.Conductors.Accounts;
 public interface IAccountConductor
 {
     Result<bool>    ActivateAccount(string emailAddress, string link, string password);

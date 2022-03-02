@@ -1,11 +1,11 @@
-﻿using CleanArchitecture.Core.Interfaces.Utility.Security;
+﻿using ExpressCargo.Core.Interfaces.Utility.Security;
 
-namespace CleanArchitecture.WebApp.Extensions.SeedData;
+namespace ExpressCargo.WebApp.Extensions.SeedData;
 public static class IApplicationBuilderExtensions
 {
     public static void ConfigureSeedData(this IApplicationBuilder _, IServiceScope serviceScope)
     {
-        var context = serviceScope.ServiceProvider.GetService<CleanArchitectureContext>();
+        var context = serviceScope.ServiceProvider.GetService<ExpressCargoContext>();
         if (context == null) throw new InvalidOperationException("context");
         context.Database.SetCommandTimeout(10000);
         context.Database.Migrate();

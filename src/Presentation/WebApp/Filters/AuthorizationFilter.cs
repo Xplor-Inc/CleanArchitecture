@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.WebApp.Filters;
+﻿namespace ExpressCargo.WebApp.Filters;
 
 public class AuthorizationFilter : IAuthorizationFilter
 {

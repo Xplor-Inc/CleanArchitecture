@@ -1,7 +1,7 @@
-﻿using CleanArchitecture.Core.Models.Configurations;
+﻿using ExpressCargo.Core.Models.Configurations;
 
-namespace CleanArchitecture.SqlServer;
-public class CleanArchitectureConnection : Connection
+namespace ExpressCargo.SqlServer;
+public class ExpressCargoConnection : Connection
 {
     #region Overrides of Connection
 

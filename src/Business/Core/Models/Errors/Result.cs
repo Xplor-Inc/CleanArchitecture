@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Core.Models.Errors;
+﻿namespace ExpressCargo.Core.Models.Errors;
     public class Result<T>
     {
         #region Properties

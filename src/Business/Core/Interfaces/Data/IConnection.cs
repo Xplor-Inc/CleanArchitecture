@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Core.Interfaces.Data;
+﻿namespace ExpressCargo.Core.Interfaces.Data;
 public interface IConnection
 {
     #region Properties

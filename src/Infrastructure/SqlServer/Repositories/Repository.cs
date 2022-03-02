@@ -1,8 +1,8 @@
-using CleanArchitecture.Core.Extensions;
-using CleanArchitecture.Core.Interfaces.Data;
-using CleanArchitecture.Core.Models.Entities;
+using ExpressCargo.Core.Extensions;
+using ExpressCargo.Core.Interfaces.Data;
+using ExpressCargo.Core.Models.Entities;
 
-namespace CleanArchitecture.SqlServer.Repositories;
+namespace ExpressCargo.SqlServer.Repositories;
 public class Repository<T> : IRepository<T>
     where T : Entity
 {

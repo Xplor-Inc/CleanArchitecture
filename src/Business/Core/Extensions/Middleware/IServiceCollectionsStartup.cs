@@ -1,11 +1,11 @@
-﻿using CleanArchitecture.Core.Conductors;
-using CleanArchitecture.Core.Conductors.Users;
-using CleanArchitecture.Core.Interfaces.Conductor;
-using CleanArchitecture.Core.Interfaces.Conductors.Accounts;
-using CleanArchitecture.Core.Interfaces.Utility.Security;
-using CleanArchitecture.Core.Utilities.Security;
+﻿using ExpressCargo.Core.Conductors;
+using ExpressCargo.Core.Conductors.Users;
+using ExpressCargo.Core.Interfaces.Conductor;
+using ExpressCargo.Core.Interfaces.Conductors.Accounts;
+using ExpressCargo.Core.Interfaces.Utility.Security;
+using ExpressCargo.Core.Utilities.Security;
 
-namespace CleanArchitecture.Core.Extensions.Middleware;
+namespace ExpressCargo.Core.Extensions.Middleware;
 public static class IServiceColletionsStartup
 {
     public static void AddUtilityResolver(this IServiceCollection services)

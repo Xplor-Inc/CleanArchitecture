@@ -1,6 +1,6 @@
-﻿using CleanArchitecture.Core.Models.Errors;
+﻿using ExpressCargo.Core.Models.Errors;
 
-namespace CleanArchitecture.WebApp.Extensions;
+namespace ExpressCargo.WebApp.Extensions;
 public static class ExceptionMiddlewareExtensions
 {
     public static void ConfigureExceptionHandler(this IApplicationBuilder app)

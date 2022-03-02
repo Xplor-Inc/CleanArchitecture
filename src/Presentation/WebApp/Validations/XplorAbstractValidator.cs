@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.WebApp.Validations
+﻿namespace ExpressCargo.WebApp.Validations
 {
     public class XplorAbstractValidator
     {

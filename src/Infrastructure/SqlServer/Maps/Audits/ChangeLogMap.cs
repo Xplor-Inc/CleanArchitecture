@@ -1,6 +1,6 @@
-﻿using CleanArchitecture.Core.Models.Entities.Audits;
+﻿using ExpressCargo.Core.Models.Entities.Audits;
 
-namespace CleanArchitecture.SqlServer.Maps.Audits;
+namespace ExpressCargo.SqlServer.Maps.Audits;
 public class ChangeLogMap : Map<ChangeLog>
 {
     public override void Configure(EntityTypeBuilder<ChangeLog> entity)

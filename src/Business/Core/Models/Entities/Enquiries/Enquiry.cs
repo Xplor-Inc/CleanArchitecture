@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Core.Models.Entities.Enquiries;
+﻿namespace ExpressCargo.Core.Models.Entities.Enquiries;
 public class Enquiry : Auditable
 {
     public new Guid?        CreatedById         { get; set; }

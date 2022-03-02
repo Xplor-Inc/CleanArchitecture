@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.WebApp.Models.Dtos.Accounts;
+﻿namespace ExpressCargo.WebApp.Models.Dtos.Accounts;
 
 public class ValidateEmailLinkDto : ForgetPasswordDto
 {

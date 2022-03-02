@@ -1,6 +1,6 @@
-﻿using CleanArchitecture.Core.Extensions;
+﻿using ExpressCargo.Core.Extensions;
 
-namespace CleanArchitecture.SqlServer.Models.Configuration
+namespace ExpressCargo.SqlServer.Models.Configuration
 {
     public class Connection : Core.Models.Configurations.Connection
     {

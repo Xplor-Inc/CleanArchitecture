@@ -1,6 +1,6 @@
-﻿using CleanArchitecture.SqlServer.Maps;
+﻿using ExpressCargo.SqlServer.Maps;
 
-namespace CleanArchitecture.SqlServer.Extensions;
+namespace ExpressCargo.SqlServer.Extensions;
 public static class ModelBuilderExtensions
 {
     public static void AddMapping<TEntity>(this ModelBuilder builder, Map<TEntity> map) where TEntity : class

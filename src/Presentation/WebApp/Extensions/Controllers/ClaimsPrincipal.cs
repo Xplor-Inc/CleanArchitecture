@@ -1,7 +1,7 @@
-using CleanArchitecture.Core.Enumerations;
+using ExpressCargo.Core.Enumerations;
 
-namespace CleanArchitecture.WebApp.Extensions.Controllers;
-public class CleanArchitectureClaimsPrincipal
+namespace ExpressCargo.WebApp.Extensions.Controllers;
+public class ExpressCargoClaimsPrincipal
 {
     public virtual UserRole    UserRole                { get; set; }
     public virtual Guid        UserId                  { get; set; }

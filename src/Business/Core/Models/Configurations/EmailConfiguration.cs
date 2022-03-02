@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Core.Models.Configuration;
+﻿namespace ExpressCargo.Core.Models.Configuration;
 public class EmailConfiguration
 {
     public bool     EnableSsl   { get; set; }

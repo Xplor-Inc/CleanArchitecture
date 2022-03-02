@@ -1,14 +1,14 @@
-﻿using CleanArchitecture.SqlServer.Extensions;
-using CleanArchitecture.SqlServer.Maps.Audits;
-using CleanArchitecture.SqlServer.Maps.Users;
-using CleanArchitecture.Core.Interfaces.Data;
-using CleanArchitecture.Core.Models.Entities.Audits;
-using CleanArchitecture.Core.Models.Entities.Users;
-using CleanArchitecture.Core.Models.Entities.Enquiries;
-using CleanArchitecture.SqlServer.Maps.Enquiries;
+﻿using ExpressCargo.SqlServer.Extensions;
+using ExpressCargo.SqlServer.Maps.Audits;
+using ExpressCargo.SqlServer.Maps.Users;
+using ExpressCargo.Core.Interfaces.Data;
+using ExpressCargo.Core.Models.Entities.Audits;
+using ExpressCargo.Core.Models.Entities.Users;
+using ExpressCargo.Core.Models.Entities.Enquiries;
+using ExpressCargo.SqlServer.Maps.Enquiries;
 
-namespace CleanArchitecture.SqlServer;
-public class CleanArchitectureContext : DataContext<User>, IFinanceManagerContext
+namespace ExpressCargo.SqlServer;
+public class ExpressCargoContext : DataContext<User>, IFinanceManagerContext
 {
     #region Properties
     public DbSet<AccountRecovery>           AccountRecoveries           { get; set; }
@@ -17,12 +17,12 @@ public class CleanArchitectureContext : DataContext<User>, IFinanceManagerContex
     #endregion
 
     #region Constructor
-    public CleanArchitectureContext(string connectionString, ILoggerFactory loggerFactory)
+    public ExpressCargoContext(string connectionString, ILoggerFactory loggerFactory)
         : base(connectionString, loggerFactory)
     {
     }
 
-    public CleanArchitectureContext(IConnection connection, ILoggerFactory loggerFactory)
+    public ExpressCargoContext(IConnection connection, ILoggerFactory loggerFactory)
         : base(connection, loggerFactory)
     {
     }

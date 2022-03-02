@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Core.Utilities;
+﻿namespace ExpressCargo.Core.Utilities;
 public class Do<T>
 {
     #region Properties

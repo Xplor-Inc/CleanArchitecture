@@ -1,10 +1,10 @@
-﻿using CleanArchitecture.Core.Interfaces.Emails.EmailHandler;
-using CleanArchitecture.Core.Interfaces.Emails.Templates;
-using CleanArchitecture.Emails.Email;
+﻿using ExpressCargo.Core.Interfaces.Emails.EmailHandler;
+using ExpressCargo.Core.Interfaces.Emails.Templates;
+using ExpressCargo.Emails.Email;
 using Emails.Templates;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CleanArchitecture.Emails.Extensions.Middleware;
+namespace ExpressCargo.Emails.Extensions.Middleware;
 public static class IServiceColletionsStartup
 {
     public static void AddEmailHandler(this IServiceCollection services)

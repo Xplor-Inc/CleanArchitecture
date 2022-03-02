@@ -5,8 +5,8 @@
 		<TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
 		<TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
 		<IsPackable>false</IsPackable>
-		<AssemblyName>CleanArchitecture.WebApp</AssemblyName>
-		<RootNamespace>CleanArchitecture.WebApp</RootNamespace>
+		<AssemblyName>ExpressCargo.WebApp</AssemblyName>
+		<RootNamespace>ExpressCargo.WebApp</RootNamespace>
 		<LangVersion>10.0</LangVersion>
 		<Company>Xplor Inc</Company>
 		<SpaRoot>ClientApp\</SpaRoot>

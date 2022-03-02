@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Core.Models.Entities.Users;
+﻿namespace ExpressCargo.Core.Models.Entities.Users;
 public class User : Auditable
 {
     #region Properties

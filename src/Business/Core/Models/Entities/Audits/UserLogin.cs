@@ -1,6 +1,6 @@
-﻿using CleanArchitecture.Core.Models.Entities.Users;
+﻿using ExpressCargo.Core.Models.Entities.Users;
 
-namespace CleanArchitecture.Core.Models.Entities.Audits;
+namespace ExpressCargo.Core.Models.Entities.Audits;
 public class UserLogin : Entity
 {
     public string IP                 { get; set; } = string.Empty;

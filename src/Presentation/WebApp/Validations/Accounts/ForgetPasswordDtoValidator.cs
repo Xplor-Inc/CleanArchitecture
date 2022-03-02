@@ -1,7 +1,7 @@
-﻿using CleanArchitecture.Core.Constants;
-using CleanArchitecture.WebApp.Models.Dtos.Accounts;
+﻿using ExpressCargo.Core.Constants;
+using ExpressCargo.WebApp.Models.Dtos.Accounts;
 
-namespace CleanArchitecture.WebApp.Validations.Accounts;
+namespace ExpressCargo.WebApp.Validations.Accounts;
 
 public class ForgetPasswordDtoValidator : AbstractValidator<ForgetPasswordDto>
 {

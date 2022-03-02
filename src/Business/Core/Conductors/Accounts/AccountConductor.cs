@@ -1,14 +1,14 @@
-﻿using CleanArchitecture.Core.Interfaces.Conductor;
-using CleanArchitecture.Core.Interfaces.Conductors.Accounts;
-using CleanArchitecture.Core.Interfaces.Emails.EmailHandler;
-using CleanArchitecture.Core.Interfaces.Emails.Templates;
-using CleanArchitecture.Core.Interfaces.Utility.Security;
-using CleanArchitecture.Core.Models.Entities.Audits;
-using CleanArchitecture.Core.Models.Entities.Users;
-using CleanArchitecture.Core.Utilities;
+﻿using ExpressCargo.Core.Interfaces.Conductor;
+using ExpressCargo.Core.Interfaces.Conductors.Accounts;
+using ExpressCargo.Core.Interfaces.Emails.EmailHandler;
+using ExpressCargo.Core.Interfaces.Emails.Templates;
+using ExpressCargo.Core.Interfaces.Utility.Security;
+using ExpressCargo.Core.Models.Entities.Audits;
+using ExpressCargo.Core.Models.Entities.Users;
+using ExpressCargo.Core.Utilities;
 using UAParser;
 
-namespace CleanArchitecture.Core.Conductors.Users;
+namespace ExpressCargo.Core.Conductors.Users;
 public class AccountConductor : IAccountConductor
 {
     #region Properties

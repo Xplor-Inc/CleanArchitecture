@@ -1,10 +1,10 @@
-﻿using CleanArchitecture.Core.Interfaces.Data;
-using CleanArchitecture.Core.Models.Configuration;
-using CleanArchitecture.Core.Models.Entities.Users;
-using CleanArchitecture.Core.Models.Security;
-using CleanArchitecture.WebApp.Utilities;
+﻿using ExpressCargo.Core.Interfaces.Data;
+using ExpressCargo.Core.Models.Configuration;
+using ExpressCargo.Core.Models.Entities.Users;
+using ExpressCargo.Core.Models.Security;
+using ExpressCargo.WebApp.Utilities;
 
-namespace CleanArchitecture.WebApp.Extensions;
+namespace ExpressCargo.WebApp.Extensions;
 public static class IServiceCollectionExtension
 {
     public static void AddCookieAuthentication(this IServiceCollection services, IConfigurationRoot configuration)
@@ -38,12 +38,12 @@ public static class IServiceCollectionExtension
     public static void AddContexts(this IServiceCollection services, string connectionString)
     {
         var loggerFactory = new Serilog.Extensions.Logging.SerilogLoggerFactory(Log.Logger, false);
-        services.AddDbContext<CleanArchitectureContext>(ServiceLifetime.Scoped);
-        services.AddScoped((sp) => new CleanArchitectureContext(connectionString, loggerFactory));
-        services.AddScoped<DataContext<User>>((sp) => new CleanArchitectureContext(connectionString, loggerFactory));
-        services.AddScoped<IDataContext<User>>((sp) => new CleanArchitectureContext(connectionString, loggerFactory));
-        services.AddScoped<IContext>((sp) => new CleanArchitectureContext(connectionString, loggerFactory));
-        services.AddScoped<IFinanceManagerContext>((sp) => new CleanArchitectureContext(connectionString, loggerFactory));
+        services.AddDbContext<ExpressCargoContext>(ServiceLifetime.Scoped);
+        services.AddScoped((sp) => new ExpressCargoContext(connectionString, loggerFactory));
+        services.AddScoped<DataContext<User>>((sp) => new ExpressCargoContext(connectionString, loggerFactory));
+        services.AddScoped<IDataContext<User>>((sp) => new ExpressCargoContext(connectionString, loggerFactory));
+        services.AddScoped<IContext>((sp) => new ExpressCargoContext(connectionString, loggerFactory));
+        services.AddScoped<IFinanceManagerContext>((sp) => new ExpressCargoContext(connectionString, loggerFactory));
     }
 
     public static void AddConfigurationFiles(this IServiceCollection services, IConfigurationRoot configuration)

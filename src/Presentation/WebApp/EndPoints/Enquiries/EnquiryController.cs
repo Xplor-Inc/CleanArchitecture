@@ -1,12 +1,12 @@
-﻿using CleanArchitecture.Core.Interfaces.Emails.EmailHandler;
-using CleanArchitecture.Core.Interfaces.Emails.Templates;
-using CleanArchitecture.Core.Models.Entities.Enquiries;
-using CleanArchitecture.WebApp.Models.Dtos.Enquiries;
+﻿using ExpressCargo.Core.Interfaces.Emails.EmailHandler;
+using ExpressCargo.Core.Interfaces.Emails.Templates;
+using ExpressCargo.Core.Models.Entities.Enquiries;
+using ExpressCargo.WebApp.Models.Dtos.Enquiries;
 
-namespace CleanArchitecture.WebApp.EndPoints.Enquiries;
+namespace ExpressCargo.WebApp.EndPoints.Enquiries;
 
 [Route("api/1.0/enquiries")]
-public class EnquiryController : CleanArchitectureController
+public class EnquiryController : ExpressCargoController
 {
     private IRepositoryConductor<Enquiry>    ContactConductor   { get; }
     private IEmailHandler                    EmailHandler       { get; }

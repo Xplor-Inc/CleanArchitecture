@@ -1,12 +1,12 @@
-﻿using CleanArchitecture.Core.Models.Entities.Users;
-using CleanArchitecture.Core.Models.Configuration;
-using CleanArchitecture.WebApp.Models.Dtos.Users;
+﻿using ExpressCargo.Core.Models.Entities.Users;
+using ExpressCargo.Core.Models.Configuration;
+using ExpressCargo.WebApp.Models.Dtos.Users;
 
-namespace CleanArchitecture.WebApp.EndPoints;
+namespace ExpressCargo.WebApp.EndPoints;
 
 [Route("dynamic/images")]
 [AppAuthorize]
-public class SecureImagesController : CleanArchitectureController
+public class SecureImagesController : ExpressCargoController
 {
     #region Properties
 

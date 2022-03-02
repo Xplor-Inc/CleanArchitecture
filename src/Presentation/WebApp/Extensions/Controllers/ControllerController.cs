@@ -1,6 +1,6 @@
-﻿using CleanArchitecture.Core.Models.Errors;
+﻿using ExpressCargo.Core.Models.Errors;
 
-namespace CleanArchitecture.WebApp;
+namespace ExpressCargo.WebApp;
 public abstract class ControllerController : Controller
 {
     #region Results

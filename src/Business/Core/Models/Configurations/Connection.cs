@@ -1,6 +1,6 @@
-﻿using CleanArchitecture.Core.Interfaces.Data;
+﻿using ExpressCargo.Core.Interfaces.Data;
 
-namespace CleanArchitecture.Core.Models.Configurations;
+namespace ExpressCargo.Core.Models.Configurations;
 public class Connection : IConnection
 {
     #region Properties

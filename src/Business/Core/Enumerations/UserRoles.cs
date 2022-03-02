@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Core.Enumerations;
+﻿namespace ExpressCargo.Core.Enumerations;
 public enum UserRole
 {
     Admin  = 1,

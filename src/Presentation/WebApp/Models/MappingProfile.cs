@@ -1,9 +1,9 @@
-﻿using CleanArchitecture.WebApp.Models.Dtos.Users;
-using CleanArchitecture.Core.Models.Entities.Users;
-using CleanArchitecture.Core.Models.Entities.Enquiries;
-using CleanArchitecture.WebApp.Models.Dtos.Enquiries;
+﻿using ExpressCargo.WebApp.Models.Dtos.Users;
+using ExpressCargo.Core.Models.Entities.Users;
+using ExpressCargo.Core.Models.Entities.Enquiries;
+using ExpressCargo.WebApp.Models.Dtos.Enquiries;
 
-namespace CleanArchitecture.WebApp.Models;
+namespace ExpressCargo.WebApp.Models;
 public class MappingProfile : Profile
 {
     public MappingProfile()

@@ -2,8 +2,8 @@
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
-		<AssemblyName>CleanArchitecture.Core</AssemblyName>
-		<RootNamespace>CleanArchitecture.Core</RootNamespace>
+		<AssemblyName>ExpressCargo.Core</AssemblyName>
+		<RootNamespace>ExpressCargo.Core</RootNamespace>
 		<LangVersion>10.0</LangVersion>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>

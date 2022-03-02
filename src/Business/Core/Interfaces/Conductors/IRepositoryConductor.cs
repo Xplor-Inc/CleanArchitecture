@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Core.Interfaces.Conductor;
+﻿namespace ExpressCargo.Core.Interfaces.Conductor;
 public interface IRepositoryConductor<T>   where T : Models.Entities.Entity
 {
     Result<T>              Create(T item, Guid createdById);

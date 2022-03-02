@@ -1,8 +1,8 @@
-﻿using CleanArchitecture.Core.Models.Entities.Audits;
-using CleanArchitecture.Core.Models.Entities.Enquiries;
-using CleanArchitecture.Core.Models.Entities.Users;
+﻿using ExpressCargo.Core.Models.Entities.Audits;
+using ExpressCargo.Core.Models.Entities.Enquiries;
+using ExpressCargo.Core.Models.Entities.Users;
 
-namespace CleanArchitecture.Core.Interfaces.Data;
+namespace ExpressCargo.Core.Interfaces.Data;
 public interface IFinanceManagerContext : IContext
 {
     IQueryable<AccountRecovery>           AccountRecoveries           { get; }

@@ -1,6 +1,6 @@
-﻿using CleanArchitecture.Core.Models.Entities;
+﻿using ExpressCargo.Core.Models.Entities;
 
-namespace CleanArchitecture.Core.Interfaces.Data;
+namespace ExpressCargo.Core.Interfaces.Data;
 public interface IRepository<T> where T :  Entity
 {
     Result<T>             Create(T item, Guid createdById);

@@ -1,6 +1,6 @@
-﻿using CleanArchitecture.Core.Models.Entities.Users;
+﻿using ExpressCargo.Core.Models.Entities.Users;
 
-namespace CleanArchitecture.Core.Interfaces.Data;
+namespace ExpressCargo.Core.Interfaces.Data;
 public interface IDataContext<TUser> : IContext
         where TUser : User
 {

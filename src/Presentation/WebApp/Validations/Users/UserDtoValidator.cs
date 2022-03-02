@@ -1,7 +1,7 @@
-﻿using CleanArchitecture.Core.Constants;
-using CleanArchitecture.WebApp.Models.Dtos.Users;
+﻿using ExpressCargo.Core.Constants;
+using ExpressCargo.WebApp.Models.Dtos.Users;
 
-namespace CleanArchitecture.WebApp.Validations.Accounts;
+namespace ExpressCargo.WebApp.Validations.Accounts;
 public class UserDtoValidator : AbstractValidator<UserDto>
 {
     public UserDtoValidator()

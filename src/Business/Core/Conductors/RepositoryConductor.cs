@@ -1,8 +1,8 @@
-﻿using CleanArchitecture.Core.Interfaces.Conductor;
-using CleanArchitecture.Core.Interfaces.Data;
-using CleanArchitecture.Core.Models.Entities;
+﻿using ExpressCargo.Core.Interfaces.Conductor;
+using ExpressCargo.Core.Interfaces.Data;
+using ExpressCargo.Core.Models.Entities;
 
-namespace CleanArchitecture.Core.Conductors;
+namespace ExpressCargo.Core.Conductors;
 public class RepositoryConductor<T> : IRepositoryConductor<T>  where T : Entity
 {
     public IRepository<T> Repository { get; }

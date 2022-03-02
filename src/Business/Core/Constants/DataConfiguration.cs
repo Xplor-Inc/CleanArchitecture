@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Core.Constants;
+﻿namespace ExpressCargo.Core.Constants;
 public class StaticConfiguration
 {
     public const int MOBILE_LENGTH          = 15;

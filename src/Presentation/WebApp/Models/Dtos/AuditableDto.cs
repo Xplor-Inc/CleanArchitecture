@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.WebApp.Models.Dtos;
+﻿namespace ExpressCargo.WebApp.Models.Dtos;
 public class AuditableDto
 {
     public Guid             Id              { get; set; }

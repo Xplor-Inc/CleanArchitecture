@@ -1,6 +1,6 @@
-﻿using CleanArchitecture.WebApp.Models.Dtos.Users;
+﻿using ExpressCargo.WebApp.Models.Dtos.Users;
 
-namespace CleanArchitecture.WebApp.Models.Dtos.Enquiries;
+namespace ExpressCargo.WebApp.Models.Dtos.Enquiries;
 public class EnquiryDto : AuditableDto
 {
     public string           Email               { get; set; }

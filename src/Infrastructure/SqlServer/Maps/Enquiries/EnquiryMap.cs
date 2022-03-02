@@ -1,7 +1,7 @@
-﻿using CleanArchitecture.Core.Constants;
-using CleanArchitecture.Core.Models.Entities.Enquiries;
+﻿using ExpressCargo.Core.Constants;
+using ExpressCargo.Core.Models.Entities.Enquiries;
 
-namespace CleanArchitecture.SqlServer.Maps.Enquiries;
+namespace ExpressCargo.SqlServer.Maps.Enquiries;
 public class EnquiryMap : Map<Enquiry>
 {
     public override void Configure(EntityTypeBuilder<Enquiry> entity)

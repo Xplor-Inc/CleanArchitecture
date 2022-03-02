@@ -1,8 +1,8 @@
-﻿using CleanArchitecture.Core.Interfaces.Utility.Security;
+﻿using ExpressCargo.Core.Interfaces.Utility.Security;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System.Security.Cryptography;
 
-namespace CleanArchitecture.Core.Utilities.Security;
+namespace ExpressCargo.Core.Utilities.Security;
 public class Encryption : IEncryption
 {
     public string GenerateSalt()

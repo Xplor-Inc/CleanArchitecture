@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Core.Models.Entities.Audits;
+﻿namespace ExpressCargo.Core.Models.Entities.Audits;
 public class ChangeLog : Entity
 {
     public Guid     PrimaryKey          { get; set; }

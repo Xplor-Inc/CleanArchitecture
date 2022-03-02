@@ -1,9 +1,9 @@
-﻿using CleanArchitecture.Core.Interfaces.Conductors.Accounts;
-using CleanArchitecture.WebApp.Models.Dtos.Accounts;
+﻿using ExpressCargo.Core.Interfaces.Conductors.Accounts;
+using ExpressCargo.WebApp.Models.Dtos.Accounts;
 
-namespace CleanArchitecture.WebApp.EndPoints.Accounts;
+namespace ExpressCargo.WebApp.EndPoints.Accounts;
 [Route("api/1.0/accountrecovery")]
-public class AccountRecoveryController : CleanArchitectureController
+public class AccountRecoveryController : ExpressCargoController
 {
     #region Properties
     public IAccountConductor AccountConductor { get; }

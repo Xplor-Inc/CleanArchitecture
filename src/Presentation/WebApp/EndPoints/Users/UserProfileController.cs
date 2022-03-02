@@ -1,10 +1,10 @@
-﻿using CleanArchitecture.Core.Models.Entities.Users;
-using CleanArchitecture.WebApp.Models.Dtos.Users;
-namespace CleanArchitecture.WebApp.EndPoints.Users;
+﻿using ExpressCargo.Core.Models.Entities.Users;
+using ExpressCargo.WebApp.Models.Dtos.Users;
+namespace ExpressCargo.WebApp.EndPoints.Users;
 
 [Route("api/1.0/users/profile")]
 [AppAuthorize]
-public class UserProfileController : CleanArchitectureController
+public class UserProfileController : ExpressCargoController
 {
     public IMapper                      Mapper          { get; }
     public IRepositoryConductor<User>   UserConductor   { get; }

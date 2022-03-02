@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Core.Models.Entities.Users;
+﻿namespace ExpressCargo.Core.Models.Entities.Users;
 public class AccountRecovery : Auditable
 {
     public Guid                 UserId                      { get; set; }

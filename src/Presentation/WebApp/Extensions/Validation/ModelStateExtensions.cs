@@ -1,8 +1,8 @@
-﻿using CleanArchitecture.Core.Extensions;
-using CleanArchitecture.Core.Models.Errors;
+﻿using ExpressCargo.Core.Extensions;
+using ExpressCargo.Core.Models.Errors;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace CleanArchitecture.WebApp.Extensions.Validation;
+namespace ExpressCargo.WebApp.Extensions.Validation;
 public static class ModelStateExtensions
 {
     public static Result<T> ToResult<T>(this ModelStateDictionary modelState)

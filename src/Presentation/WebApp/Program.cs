@@ -12,9 +12,9 @@ builder.Host.UseSerilog((ctx, lc) => lc
                 .ReadFrom.Configuration(ctx.Configuration));
 Log.Logger.Information("App is starting.....");
 
-var connectionString = builder.Configuration.GetConnectionString("CleanArchitecture");
+var connectionString = builder.Configuration.GetConnectionString("ExpressCargo");
 builder.Services.AddLogging();
-builder.Services.AddDbContextPool<CleanArchitectureContext>(
+builder.Services.AddDbContextPool<ExpressCargoContext>(
                          opentions => opentions.UseSqlServer(connectionString: connectionString));
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme);

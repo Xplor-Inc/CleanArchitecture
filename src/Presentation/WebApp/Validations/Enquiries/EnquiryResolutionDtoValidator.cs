@@ -1,7 +1,7 @@
-﻿using CleanArchitecture.Core.Constants;
-using CleanArchitecture.WebApp.Models.Dtos.Enquiries;
+﻿using ExpressCargo.Core.Constants;
+using ExpressCargo.WebApp.Models.Dtos.Enquiries;
 
-namespace CleanArchitecture.WebApp.Validations.Enquiries
+namespace ExpressCargo.WebApp.Validations.Enquiries
 {
     public class EnquiryResolutionDtoValidator : AbstractValidator<EnquiryResolutionDto>
     {

@@ -1,7 +1,7 @@
-﻿using CleanArchitecture.Core.Constants;
-using CleanArchitecture.Core.Models.Entities.Audits;
+﻿using ExpressCargo.Core.Constants;
+using ExpressCargo.Core.Models.Entities.Audits;
 
-namespace CleanArchitecture.SqlServer.Maps.Audits;
+namespace ExpressCargo.SqlServer.Maps.Audits;
 public class UserLoginMap : Map<UserLogin>
 {
     public override void Configure(EntityTypeBuilder<UserLogin> entity)

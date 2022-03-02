@@ -1,14 +1,14 @@
-﻿using CleanArchitecture.Core.Interfaces.Conductors.Accounts;
-using CleanArchitecture.Core.Models.Security;
-using CleanArchitecture.WebApp.Models.Dtos.Accounts;
-using CleanArchitecture.WebApp.Models.Dtos.Users;
-using CleanArchitecture.WebApp.Utilities;
+﻿using ExpressCargo.Core.Interfaces.Conductors.Accounts;
+using ExpressCargo.Core.Models.Security;
+using ExpressCargo.WebApp.Models.Dtos.Accounts;
+using ExpressCargo.WebApp.Models.Dtos.Users;
+using ExpressCargo.WebApp.Utilities;
 using System.Security.Claims;
 
-namespace CleanArchitecture.WebApp.Endpoints;
+namespace ExpressCargo.WebApp.Endpoints;
 
 [Route("api/1.0/account")]
-public class AccountController : CleanArchitectureController
+public class AccountController : ExpressCargoController
 {
     #region Properties
     public IAccountConductor                    AccountConductor        { get; }

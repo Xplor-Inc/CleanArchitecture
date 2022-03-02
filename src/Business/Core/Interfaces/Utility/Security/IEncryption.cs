@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Core.Interfaces.Utility.Security;
+﻿namespace ExpressCargo.Core.Interfaces.Utility.Security;
 public interface IEncryption
 {
     string GenerateSalt();

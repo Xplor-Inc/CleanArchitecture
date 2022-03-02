@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <AssemblyName>CleanArchitecture.SqlServer</AssemblyName>
-    <RootNamespace>CleanArchitecture.SqlServer</RootNamespace>
+    <AssemblyName>ExpressCargo.SqlServer</AssemblyName>
+    <RootNamespace>ExpressCargo.SqlServer</RootNamespace>
     <LangVersion>10.0</LangVersion>
   </PropertyGroup>
 

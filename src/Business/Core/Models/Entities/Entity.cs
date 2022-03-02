@@ -1,6 +1,6 @@
-﻿using CleanArchitecture.Core.Models.Entities.Users;
+﻿using ExpressCargo.Core.Models.Entities.Users;
 
-namespace CleanArchitecture.Core.Models.Entities;
+namespace ExpressCargo.Core.Models.Entities;
 public abstract class Entity 
 {
     public Guid                 Id               { get; set; }

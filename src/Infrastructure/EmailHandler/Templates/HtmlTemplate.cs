@@ -1,7 +1,7 @@
-﻿using CleanArchitecture.Core.Interfaces.Emails.Templates;
-using CleanArchitecture.Core.Models.Configuration;
-using CleanArchitecture.Core.Models.Entities.Enquiries;
-using CleanArchitecture.Core.Models.Entities.Users;
+﻿using ExpressCargo.Core.Interfaces.Emails.Templates;
+using ExpressCargo.Core.Models.Configuration;
+using ExpressCargo.Core.Models.Entities.Enquiries;
+using ExpressCargo.Core.Models.Entities.Users;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using UAParser;

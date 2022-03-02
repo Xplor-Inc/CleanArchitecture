@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Core.Models.Security;
+﻿namespace ExpressCargo.Core.Models.Security;
 public class CookieAuthenticationConfiguration
 {
     public string AuthenticationScheme      { get; set; } = string.Empty;

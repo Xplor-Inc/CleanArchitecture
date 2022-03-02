@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Core.Extensions;
+﻿namespace ExpressCargo.Core.Extensions;
 public static class QueryableExtensions
 {
     public static IOrderedQueryable<T> OrderBy<T>(this IQueryable<T> query, string propertyName, string direction = "ASC")

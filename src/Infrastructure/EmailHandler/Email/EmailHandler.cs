@@ -1,11 +1,11 @@
-﻿using CleanArchitecture.Core.Interfaces.Emails.EmailHandler;
-using CleanArchitecture.Core.Models.Configuration;
+﻿using ExpressCargo.Core.Interfaces.Emails.EmailHandler;
+using ExpressCargo.Core.Models.Configuration;
 using Microsoft.Extensions.Logging;
 using System.Net;
 using System.Net.Mail;
 using System.Text.RegularExpressions;
 
-namespace CleanArchitecture.Emails.Email;
+namespace ExpressCargo.Emails.Email;
 
 public class EmailHandler : IEmailHandler
 {

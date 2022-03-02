@@ -1,11 +1,11 @@
-﻿using CleanArchitecture.Core.Interfaces.Data;
-using CleanArchitecture.Core.Models.Entities;
-using CleanArchitecture.Core.Models.Entities.Audits;
-using CleanArchitecture.Core.Models.Entities.Users;
+﻿using ExpressCargo.Core.Interfaces.Data;
+using ExpressCargo.Core.Models.Entities;
+using ExpressCargo.Core.Models.Entities.Audits;
+using ExpressCargo.Core.Models.Entities.Users;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace CleanArchitecture.SqlServer
+namespace ExpressCargo.SqlServer
 {
     public class DataContext<TUser> : Context, IDataContext<TUser>
         where TUser : User

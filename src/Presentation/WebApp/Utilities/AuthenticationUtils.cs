@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.WebApp.Utilities;
+﻿namespace ExpressCargo.WebApp.Utilities;
 public class AuthenticationUtils
 {
     public static AuthenticationProperties GetAuthenticationProperties()

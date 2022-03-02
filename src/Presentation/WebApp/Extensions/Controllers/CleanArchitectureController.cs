@@ -1,8 +1,8 @@
-﻿using CleanArchitecture.Core.Enumerations;
-using CleanArchitecture.Core.Extensions;
+﻿using ExpressCargo.Core.Enumerations;
+using ExpressCargo.Core.Extensions;
 
-namespace CleanArchitecture.WebApp;
-public abstract class CleanArchitectureController : ControllerController
+namespace ExpressCargo.WebApp;
+public abstract class ExpressCargoController : ControllerController
 {
     public override void OnActionExecuted(ActionExecutedContext context)
     {
@@ -14,7 +14,7 @@ public abstract class CleanArchitectureController : ControllerController
         base.OnActionExecuting(context);
     }
 
-    protected virtual CleanArchitectureClaimsPrincipal CleanArchitectureClaims { get; set; }
-    protected virtual UserRole? CurrentRoleType => CleanArchitectureClaims != null ? CleanArchitectureClaims.UserRole : User.RoleType();
-    protected virtual Guid      CurrentUserId   => CleanArchitectureClaims != null ? CleanArchitectureClaims.UserId : User.UserId();
+    protected virtual ExpressCargoClaimsPrincipal ExpressCargoClaims { get; set; }
+    protected virtual UserRole? CurrentRoleType => ExpressCargoClaims != null ? ExpressCargoClaims.UserRole : User.RoleType();
+    protected virtual Guid      CurrentUserId   => ExpressCargoClaims != null ? ExpressCargoClaims.UserId : User.UserId();
 }

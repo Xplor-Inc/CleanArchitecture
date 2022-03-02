@@ -1,15 +1,15 @@
-using CleanArchitecture.Core.Interfaces.Utility.Security;
-using CleanArchitecture.Core.Models.Entities.Users;
+using ExpressCargo.Core.Interfaces.Utility.Security;
+using ExpressCargo.Core.Models.Entities.Users;
 
-namespace CleanArchitecture.SqlServer;
-public static class CleanArchitectureExtensions
+namespace ExpressCargo.SqlServer;
+public static class ExpressCargoExtensions
 {
-    public static void AddInitialData(this CleanArchitectureContext context, IEncryption encryption)
+    public static void AddInitialData(this ExpressCargoContext context, IEncryption encryption)
     {
         context.SeedUsers(encryption);
     }
 
-    private static void SeedUsers(this CleanArchitectureContext context, IEncryption encryption)
+    private static void SeedUsers(this ExpressCargoContext context, IEncryption encryption)
     {
         var id = Guid.NewGuid();
         var salt = encryption.GenerateSalt();

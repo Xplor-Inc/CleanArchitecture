@@ -1,7 +1,7 @@
-﻿using CleanArchitecture.Core.Interfaces.Data;
+﻿using ExpressCargo.Core.Interfaces.Data;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace CleanArchitecture.SqlServer;
+namespace ExpressCargo.SqlServer;
 public abstract class Context : DbContext, IContext
 {
     #region Member Variables

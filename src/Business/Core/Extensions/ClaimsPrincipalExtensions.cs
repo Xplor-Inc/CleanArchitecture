@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Core.Extensions;
+﻿namespace ExpressCargo.Core.Extensions;
 public static class ClaimsPrincipalExtensions
 {
     public static UserRole? RoleType(this ClaimsPrincipal principal)

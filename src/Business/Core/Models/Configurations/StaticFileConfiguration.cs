@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Core.Models.Configuration;
+﻿namespace ExpressCargo.Core.Models.Configuration;
 public class StaticFileConfiguration
 {
     public List<string> AllowedExtention    { get; set; } = new List<string>();

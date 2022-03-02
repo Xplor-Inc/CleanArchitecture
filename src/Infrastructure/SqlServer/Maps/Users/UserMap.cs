@@ -1,7 +1,7 @@
-﻿using CleanArchitecture.Core.Constants;
-using CleanArchitecture.Core.Models.Entities.Users;
+﻿using ExpressCargo.Core.Constants;
+using ExpressCargo.Core.Models.Entities.Users;
 
-namespace CleanArchitecture.SqlServer.Maps.Users;
+namespace ExpressCargo.SqlServer.Maps.Users;
 public class UserMap : Map<User>
 {
     public override void Configure(EntityTypeBuilder<User> entity)

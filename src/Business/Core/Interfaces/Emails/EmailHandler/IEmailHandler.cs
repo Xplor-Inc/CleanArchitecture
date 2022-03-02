@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Core.Interfaces.Emails.EmailHandler;
+﻿namespace ExpressCargo.Core.Interfaces.Emails.EmailHandler;
 public interface IEmailHandler
 {
     bool Send(string message, string subject, string[] toEmails, string[]? attachments = null);

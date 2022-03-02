@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 
-namespace CleanArchitecture.WebApp.Utilities;
+namespace ExpressCargo.WebApp.Utilities;
 public static class PrincipalValidator
 {
     public static async Task ValidateAsync(CookieValidatePrincipalContext context)
@@ -13,7 +13,7 @@ public static class PrincipalValidator
             return;
         }
         var securityStamp   = context.Principal?.Claims.FirstOrDefault(claim => claim.Type == ClaimTypes.AuthenticationInstant)?.Value;
-        var dbContext       = context.HttpContext.RequestServices.GetRequiredService<CleanArchitectureContext>();
+        var dbContext       = context.HttpContext.RequestServices.GetRequiredService<ExpressCargoContext>();
         var user            = await dbContext.Users.FirstOrDefaultAsync(e => e.Id == Guid.Parse(userId));
         if (user == null || user.DeletedOn.HasValue || user.SecurityStamp != securityStamp)
         {
