@@ -1,0 +1,86 @@
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: white;
+}
+
+::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px #02cbab;
+}
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+.box-container {
+    border-radius: 23px;
+    font-weight: 500;
+    background: white;
+    padding-left: 20px !important;
+}
+.container-margin{
+    margin-top: 70px;   
+}
+.container-body {
+    min-height: calc(100vh - 115px);
+    margin-top: 70px;
+}
+
+.container {
+    max-width: 100% !important;
+    padding: 0;
+}
+
+.row {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+
+.paging {
+    border: none;
+    width: 2.5rem;
+    border-radius: 50%;
+    font-weight: 700;
+    height: 2.5rem;
+    color: #072C50;
+    padding-bottom: 5px;
+    vertical-align: middle;
+}
+
+.paging:hover {
+    color: #072C50;
+    border: 1px solid #98a1aa;
+}
+
+.paging:hover:disabled {
+    border: none;
+}
+
+.card-header{
+    font-size: 1.5rem;
+    padding: 0.25rem !important;
+}
+
+.slider-background {
+    background-position: top;
+    background-repeat: no-repeat;
+    color: wheat;
+    background-size: cover;
+    margin-top: -24px;
+    padding-top: 20vh;
+    height: calc(100vh - 70px);
+}

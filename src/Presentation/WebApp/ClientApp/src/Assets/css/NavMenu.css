@@ -1,0 +1,33 @@
+﻿.nav-item {
+    padding: 5px 1rem;
+    font-size: 1.25rem;
+}
+
+.active {
+    border-bottom: 2px solid #c30f62;
+}
+@media (max-width: 992px) {
+    .nav-item {
+        padding: 5px 1rem;
+        font-size: 1.25rem;
+    }
+}
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+.navbar-brand img{
+    width: 30px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+nav {
+    z-index: 99;
+}
+
+.nav-link {
+    display: initial;
+    padding: 0rem 1rem;
+}

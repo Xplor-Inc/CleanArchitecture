@@ -348,3 +348,7 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/src/Presentation/WebApp/.config
+/src/Presentation/WebApp/ClientApp/package-lock.json
+/src/Presentation/WebApp/Properties
+/src/Presentation/WebApp/appsettings.Development.json

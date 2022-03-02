@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Thanks for connecting..</title>
+    <style>
+        td {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body style="background-image: linear-gradient(to right,#81019f,#5a38af,#02cbab); padding: 5px;">
+    <center style="margin-top:50px; margin:20px; text-align:left">
+        <div style="background-color: white; padding: 20px; ">
+            <h3>Hi {{Name}},</h3>
+            <div style="font-size:1rem;">Thank you for contacting us! We will be in touch shortly, but you may also find answers to some of your questions on our FAQ page at <a href="{{applicationUrl}}/faq">FAQ's</a>.</div>
+            <br />
+            <p>Below information is submitted</p>
+            <table border="1" style="border-collapse:collapse; width:100%">
+                <tr>
+                    <td style="border:0">Name</td>
+                    <td style="border:0">:</td>
+                    <td style="border:0">{{Name}}</td>
+                </tr>
+                <tr>
+                    <td style="border-right: 0; border-left: 0 ">Email</td>
+                    <td style="border-right: 0; border-left: 0 ">:</td>
+                    <td style="border-right: 0; border-left: 0 ">{{Email}}</td>
+                </tr>
+                <tr>
+                    <td style="border:0">Subject</td>
+                    <td style="border:0">:</td>
+                    <td style="border:0">{{Subject}}</td>
+                </tr>
+                <tr>
+                    <td style="border-right: 0; vertical-align:top">Message</td>
+                    <td style="border-right: 0; border-left:0;vertical-align:top">:</td>
+                    <td style="border-right: 0; border-left: 0; vertical-align:top">{{Message}}</td>
+                </tr>
+            </table>
+            <br />
+            <br />
+            <div style="color:black;font-size:15px;">
+                For security, this request was received from  a {{OperatingSystem}} {{Device}} using {{BrowserName}} and {{IPAddress}} IP Address. If you did not request a password reset, please ignore this email or <a href="{{applicationUrl}}/contact">Contact Support</a> if you have questions.
+            </div>
+            <br />
+            <br />
+            <p style="margin: 0;">Support Team,</p>
+            <p>Clean Architecture</p>
+        </div>
+    </center>
+</body>
+</html>

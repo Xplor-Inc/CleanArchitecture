@@ -1,0 +1,320 @@
+/*******  About Section *******/
+.section-about {
+  margin: 10px 0px;
+  color: white;
+}
+
+.section-about .about-img img {
+  border: 10px solid rgba(255, 255, 255, 0.03);
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 30px rgb(0 0 0 / 20%);
+  box-shadow: 0 0 30px rgb(0 0 0 / 20%);
+}
+
+.section-about img {
+  width: 100%;
+  height: auto;
+}
+
+.section-about .about-info h3 {
+  font-size: 26px;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.mb-20 {
+  margin-bottom: 20px !important;
+}
+
+.section-about .about-info p {
+  margin-bottom: 25px;
+  line-height: 27px;
+}
+
+.section-about .about-info p strong {
+  color: #F5AE51;
+}
+
+.main-btn {
+  color: #F5AE51;
+  border-color: #F5AE51;
+}
+
+.main-btn {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 600;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  border: 2px solid #e1e1e1;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background-color: transparent;
+  cursor: pointer;
+  line-height: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  -webkit-transition: all .2s ease-in;
+  -o-transition: all .2s ease-in;
+  transition: all .2s ease-in;
+}
+
+.section-about .about-info .about-list li {
+  margin-bottom: 10px;
+}
+
+.section-about .about-info .about-list li .title {
+  position: relative;
+  margin-right: 10px;
+  padding-bottom: 1px;
+  color: #a1a1a1;
+  font-weight: 700;
+}
+
+.section-about span {
+  display: inline-block;
+}
+
+.section-about .about-info .about-list li .value {
+  position: relative;
+}
+
+.section-about .about-info .about-list li .title:before {
+  background-color: #F5AE51;
+}
+
+.section-about .about-info .about-list li .title:before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background: #e1e1e1;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+
+.section-about .about-info .about-list li .title:after {
+  position: absolute;
+  content: ':';
+  right: -8px;
+}
+
+/**************   Contact Section  ************************/
+.contact-section .contact-form .content-title {
+  margin-bottom: 22px;
+}
+
+.content-title {
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.contact-section .contact-form .form-group {
+  margin-bottom: 25px;
+}
+
+.contact-section .contact-form .form-group .form-control, .contact-section .contact-form .form-group .form-control::placeholder {
+  color: #777;
+}
+
+.contact-section .contact-form .form-group .form-control {
+  border: none;
+  border-bottom: 1px solid #1d1d1d;
+  border-radius: 0;
+  font-size: 15px;
+  height: 44px;
+  padding: 9px 14px;
+}
+
+.contact-section .contact-form .form-submit #contact-submit {
+  padding: 10px 26px;
+}
+
+.btn.button-scheme {
+  background-color: #02cbab;
+  border: 1px solid #009e66 !important;
+  color: white;
+  font-weight: 600;
+}
+
+.contact-section .contact-form .form-group .form-control:focus {
+  border-bottom: 1px solid #00d187;
+}
+
+.contact-section .contact-form .form-group .form-control:focus {
+  box-shadow: none;
+}
+
+.contact-section .contact-info {
+  padding-left: 15px;
+}
+
+.content-title {
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.contact-section .contact-info .info-description {
+  font-size: 15px;
+  margin-bottom: 28px;
+}
+
+.contact-section address, .contact-section ul {
+  margin: 0;
+}
+
+.list-unstyled {
+  list-style: none;
+  padding-left: 0;
+}
+
+.align-items-center {
+  -ms-flex-align: center !important;
+  align-items: center !important;
+}
+
+.media {
+  -ms-flex-align: start;
+  align-items: flex-start;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.contact-section .contact-info .list-info>li:first-child .info-icon {
+  margin-bottom: 13px;
+}
+
+.contact-section .contact-info .list-info .info-icon {
+  font-size: 36px;
+  margin-right: 20px;
+  position: relative;
+}
+
+.contact-section .contact-info .list-info .info-icon i {
+  color: #009e66;
+}
+
+.contact-section .contact-info .list-info .info-icon i {
+  -webkit-transform: translate(0, -50%);
+  left: 0;
+  line-height: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.contact-section .contact-info .list-info>li:first-child .info-details {
+  padding-top: 0;
+}
+
+.contact-section .contact-info .list-info .info-details {
+  border-left: 2px solid rgba(255, 255, 255, .15);
+  padding: 12px 0 12px 22px;
+}
+
+.media-body {
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.contact-section .contact-info .list-info .info-details .info-type {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.contact-section .contact-info .list-info .info-details .info-value a {
+  color: #9f9f9f !important;
+}
+
+.lightbox-content {
+  color: white;
+}
+
+.lightbox-content .section-heading.page-heading {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.lightbox-content .section-heading {
+  margin-bottom: 50px;
+  text-align: left;
+}
+
+.lightbox-content .section-heading>.section-description {
+  font-size: 15px;
+  margin-bottom: 17px;
+}
+
+.content .section-heading.page-heading>.section-title {
+  font-size: 46px;
+  margin-bottom: 37px;
+}
+
+.lightbox-content .section-heading>.section-title {
+  display: inline-block;
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: -.25px;
+  line-height: 100%;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 9;
+}
+
+.lightbox-content .section-heading.page-heading>.animated-bar {
+  background-color: green !important;
+}
+
+.lightbox-content .section-heading.page-heading>.animated-bar {
+  background-color: #fff;
+  content: '';
+  display: block;
+  height: 4px;
+  left: 0;
+  margin: 0 auto 0 auto;
+  position: relative;
+  right: 0;
+  width: 75px;
+}
+
+.lightbox-content .section-heading.page-heading>.animated-bar:before {
+  left: 8px;
+}
+
+.lightbox-content .section-heading.page-heading>.animated-bar:after, .lightbox-content .section-heading.page-heading>.animated-bar:before {
+  -webkit-animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-name: barAnimation;
+  -webkit-animation-timing-function: linear;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-name: barAnimation;
+  animation-timing-function: linear;
+  background-color: #101010;
+  content: '';
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 4px;
+}
+
+.lightbox-content .section-heading.page-heading>.animated-bar:after {
+  left: 0;
+}
+
+@keyframes barAnimation {
+  from {
+    -webkit-transform: translateX(0);
+    transform: translateX(0)
+  }
+
+  to {
+    -webkit-transform: translateX(75px);
+    transform: translateX(75px)
+  }
+}
