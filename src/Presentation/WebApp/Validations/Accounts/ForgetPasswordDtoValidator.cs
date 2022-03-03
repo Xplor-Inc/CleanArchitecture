@@ -7,6 +7,8 @@ public class ForgetPasswordDtoValidator : AbstractValidator<ForgetPasswordDto>
 {
     public ForgetPasswordDtoValidator()
     {
+        ValidatorOptions.Global.CascadeMode = CascadeMode.Stop;
+
         RuleFor(m => m.EmailAddress)
             .NotEmpty()
             .WithMessage("EmailAddress is required")

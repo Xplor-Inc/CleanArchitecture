@@ -7,6 +7,8 @@ public class ChangePasswordDtoValidator : AbstractValidator<ChangePasswordDto>
 {
     public ChangePasswordDtoValidator()
     {
+        ValidatorOptions.Global.CascadeMode = CascadeMode.Stop;
+
         RuleFor(m => m.OldPassword)
                 .NotEmpty()
                 .WithMessage("OldPassword is required")
