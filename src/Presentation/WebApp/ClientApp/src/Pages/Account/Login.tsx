@@ -19,7 +19,6 @@ import { useAppDispatch } from '../../ReduxStore/hooks';
 const Login = () => {
     const [loginData, SetLoginData] = useState<{ email: string, password: string, isLoading: boolean }>({ email: '', isLoading: false, password: '' })
     let navigate = useNavigate();
-    toast.dismiss();
     const dispatch = useAppDispatch()
     
     const processLogin = async (e: React.MouseEvent<HTMLInputElement>) => {

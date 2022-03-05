@@ -219,7 +219,7 @@ export default class Users extends Component<{}, { isUpdating: boolean, paging: 
                 <PageTitle title='Manage Users' />
                 <h3 className="card-header">Create &amp; Manage User Accounts</h3>
                 <div className="card-body">
-                    <form method="post" id="bankAccountForm">
+                    <form method="post">
                         <div className="row">
                             <div className="col-md-3">
                                 <span>First Name</span>
@@ -241,9 +241,10 @@ export default class Users extends Component<{}, { isUpdating: boolean, paging: 
                                     value={user.emailAddress}
                                     onChange={(e) => { this.setState({ user: { ...this.state.user, emailAddress: e.target.value } }) }} />
                             </div>
-                            <div className="col-md-3" style={{ paddingTop: '20px' }}>
+                            <div className="col-md-3 button-pt">
                                 <button type="button" className="btn btn-outline-info" onClick={(e) => this.createUser(e)}> {isUpdating ? "Update" : "Add"} User</button>
-                                {isUpdating ?
+                                {
+                                    isUpdating ?
                                     <button type="button" className="btn btn-outline-danger ms-2"
                                         onClick={() => this.setState({
                                             isUpdating: false,

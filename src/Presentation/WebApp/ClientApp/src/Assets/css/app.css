@@ -38,7 +38,9 @@ html {
     min-height: calc(100vh - 115px);
     margin-top: 70px;
 }
-
+.button-pt {
+    padding-top: 24px;
+}
 .container {
     max-width: 100% !important;
     padding: 0;

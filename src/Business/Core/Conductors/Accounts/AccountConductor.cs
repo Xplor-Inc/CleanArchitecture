@@ -134,34 +134,19 @@ public class AccountConductor : IAccountConductor
                     return null;
                 }
 
-                var (ipAddress, operatingSystem, browser, device) = GetUserAgent();
-
-                var userLogin = new UserLogin
-                {
-                    IP              = ipAddress,
-                    ServerName      = System.Environment.MachineName,
-                    UserId          = user.Id,
-                    Browser         = browser,
-                    OperatingSystem = operatingSystem,
-                    Device          = device
-                };
-
-                var userLoginCreateResult = UserLoginRepository.Create(userLogin, user.Id);
-                if (userLoginCreateResult.HasErrors)
-                {
-                    r.AddErrors(userLoginCreateResult.Errors);
-                    return null;
-                }
+                CreateUserLogin(user, emailAddress, true);
                 return user;
             }
             else
             {
+                CreateUserLogin(user, emailAddress, false);
                 r.AddError("Invalid Email Address or Password");
                 return null;
             }
         }
         else
         {
+            CreateUserLogin(user, emailAddress, false);
             r.AddError("Invalid Email Address or Password");
             return null;
         }
@@ -410,7 +395,7 @@ public class AccountConductor : IAccountConductor
         return false;
     }).Result;
 
-private (string IpAddress, string OperatingSystem, string Browser, string Device) GetUserAgent()
+    private (string IpAddress, string OperatingSystem, string Browser, string Device) GetUserAgent()
     {
         var req = HttpContext.HttpContext?.Request;
         if (req == null) { throw new NullReferenceException(nameof(req)); }
@@ -434,6 +419,31 @@ private (string IpAddress, string OperatingSystem, string Browser, string Device
             ipAddress = req.Headers["X-Forwarded-For"];
         }
         return (ipAddress, operatingSystem, browser, device);
+    }
+
+    private void CreateUserLogin(User? user, string emailAddress, bool loginSuccess)
+    {
+        var (ipAddress, operatingSystem, browser, device) = GetUserAgent();
+
+        var userLogin = new UserLogin
+        {
+            Browser         = browser,
+            CreatedById     = user?.Id,
+            Device          = device,
+            Email           = emailAddress,
+            IP              = ipAddress,
+            IsLoginSuccess  = loginSuccess,
+            IsValidUser     = user != null,
+            OperatingSystem = operatingSystem,
+            ServerName      = System.Environment.MachineName,
+            UserId          = user?.Id
+        };
+        
+        var userLoginCreateResult = UserLoginRepository.Create(userLogin, user?.Id ?? Guid.Empty);
+        if (userLoginCreateResult.HasErrors)
+        {
+            Logger.LogError(userLoginCreateResult.GetErrors());
+        }
     }
 
 }

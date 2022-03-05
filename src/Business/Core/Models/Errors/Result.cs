@@ -4,7 +4,7 @@
         #region Properties
 
         public virtual List<string>               Errors         { get; set; } = new List<string>();
-        public virtual bool                       HasErrors      => Errors.Any();
+        public virtual bool                       HasErrors      => Errors != null && Errors.Any();
         public virtual T                          ResultObject   { get; set; }
         public long                               RowCount       { get; set; }
 

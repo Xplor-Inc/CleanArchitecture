@@ -1,4 +1,6 @@
 export class ROUTE_END_POINTS  {
+    static readonly ABOUT                = '/about'
+    static readonly CONTACT              = '/contact'
     static readonly HOME                 = '/'
     static readonly LOGIN                = '/login'
     static readonly USERS                = '/users'

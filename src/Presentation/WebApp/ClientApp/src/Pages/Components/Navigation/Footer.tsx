@@ -11,7 +11,7 @@ export const Footer = () => {
                 &nbsp;<a href="https://dotnet.microsoft.com/en-us/" >.net6</a> &
                 &nbsp;<a href="https://reactjs.org/">ReactJs</a> 
                 &nbsp;&nbsp;
-                &copy; 2022 Version 0.1.0
+                &copy;  &copy;  {new Date().getFullYear()} Version 0.1.0
             </div>
         </footer>
     </>

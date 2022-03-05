@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem } from 'reactstrap';
+import { Link, NavLink } from 'react-router-dom';
 import SessionManager from '../../../Components/Service/SessionManager';
 import { ROUTE_END_POINTS } from '../../../Components/Core/Constants/RouteEndPoints';
 import NavDropdown from 'react-bootstrap/esm/NavDropdown';
@@ -13,67 +13,48 @@ const NavMenu = () => {
     const isLogedIn = useAppSelector(state => state.user.isLoggedIn)
 
     const [isOpen, setIsOpen] = React.useState(false);
-    const [activeClass, SetAciveClass] = React.useState(window.location.pathname);
 
     const toggle = () => {
         setIsOpen(!isOpen)
-    }
-    const handleClick = (path: string) => {
-        if (isOpen) {
-            toggle();
-            SetAciveClass(path)
-        }
-        else
-            SetAciveClass(path)
     }
 
     return (
         <header>
             <Navbar className="navbar-expand-sm navbar-toggleable-sm box-shadow fixed-top" light style={{ backgroundImage: "linear-gradient(to right, #81019f,#5a38af, #02cbab)" }}>
                 <Container className="box-container">
-                    <NavbarBrand tag={Link} to={ROUTE_END_POINTS.HOME} onClick={() => handleClick(ROUTE_END_POINTS.HOME)}>
+                    <NavbarBrand tag={Link} to={ROUTE_END_POINTS.HOME}>
                         <img src='/images/icon.jpeg' alt='Logo' />
-                        Hoshiyar Singh</NavbarBrand>
+                    </NavbarBrand>
                     <NavbarToggler onClick={toggle} className="mr-2" />
                     <Collapse className="navbar-collapse" isOpen={isOpen}>
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <NavItem>
-                                <NavLink tag={Link} className="text-dark" to={ROUTE_END_POINTS.HOME}
-                                    active={activeClass === ROUTE_END_POINTS.HOME}
-                                    onClick={() => handleClick(ROUTE_END_POINTS.HOME)}>
-                                    Home
-                                </NavLink>
-                            </NavItem>
                             {
                                 isLogedIn ?
                                     <>
                                         <NavItem>
-                                            <NavLink tag={Link} className="text-dark" to={ROUTE_END_POINTS.USERS}
-                                                active={activeClass === ROUTE_END_POINTS.USERS}
-                                                onClick={() => handleClick(ROUTE_END_POINTS.USERS)}>
+                                            <NavLink className="text-dark nav-link" to={ROUTE_END_POINTS.USERS}>
                                                 Users
                                             </NavLink>
                                         </NavItem>
                                         <NavItem>
-                                            <NavLink tag={Link} className="text-dark" to={ROUTE_END_POINTS.ENQUIRY}
-                                                active={activeClass === ROUTE_END_POINTS.ENQUIRY}
-                                                onClick={() => handleClick(ROUTE_END_POINTS.ENQUIRY)}>
+                                            <NavLink className="text-dark nav-link" to={ROUTE_END_POINTS.ENQUIRY}>
                                                 Enquiries
                                             </NavLink>
                                         </NavItem>
                                     </>
                                     : <>
                                         <NavItem>
-                                            <NavLink tag={Link} className="text-dark" to="/about"
-                                                active={activeClass === "/about"}
-                                                onClick={() => handleClick("/about")}>
+                                            <NavLink className="text-dark nav-link" to={ROUTE_END_POINTS.HOME}>
+                                                Home
+                                            </NavLink>
+                                        </NavItem>
+                                        <NavItem>
+                                            <NavLink className="text-dark nav-link" to="/about">
                                                 About
                                             </NavLink>
                                         </NavItem>
                                         <NavItem>
-                                            <NavLink tag={Link} className="text-dark" to="/contact"
-                                                active={activeClass === "/contact"}
-                                                onClick={() => handleClick("/contact")}>
+                                            <NavLink className="text-dark nav-link" to="/contact">
                                                 Contact
                                             </NavLink>
                                         </NavItem>
@@ -85,27 +66,28 @@ const NavMenu = () => {
                                 {
                                     isLogedIn ?
                                         <>
-                                            <NavDropdown title={<ProfileImage />} onClick={() => { setIsOpen(true)}}
-                                                active={activeClass === ROUTE_END_POINTS.CHANGE_PASSWORD}>
-                                                <Link className="dropdown-item" role={'button'} to={ROUTE_END_POINTS.CHANGE_PASSWORD}
-                                                    onClick={() => handleClick(ROUTE_END_POINTS.CHANGE_PASSWORD)}>
-                                                    Change Password
-                                                </Link>
-                                                <Link className="dropdown-item" role={'button'} to={ROUTE_END_POINTS.USER_PROFILE}
-                                                    onClick={() => handleClick(ROUTE_END_POINTS.USER_PROFILE)}>
-                                                    Update Profile
-                                                </Link>
+                                            <NavDropdown title={<ProfileImage />}>
+                                                <NavDropdown.Item className="dropdown-item" role={'button'}>
+                                                    <NavLink className="dropdown-item" to={ROUTE_END_POINTS.CHANGE_PASSWORD}>
+                                                        Change Password
+                                                    </NavLink>
+                                                </NavDropdown.Item>
+                                                <NavDropdown.Item className="dropdown-item" role={'button'}>
+                                                    <NavLink className="dropdown-item" role={'button'} to={ROUTE_END_POINTS.USER_PROFILE}>
+                                                        Update Profile
+                                                    </NavLink>
+                                                </NavDropdown.Item>
                                                 <NavDropdown.Divider />
                                                 <NavDropdown.Item href="/profile" onClick={SessionManager.Logout}>
-                                                    Logout <FaSignOutAlt />
+                                                    <NavLink className="dropdown-item" role={'button'} to="#logout">
+                                                        Logout <FaSignOutAlt />
+                                                    </NavLink>
                                                 </NavDropdown.Item>
 
                                             </NavDropdown>
                                         </>
                                         : <NavItem>
-                                            <NavLink tag={Link} className="text-dark" to={ROUTE_END_POINTS.LOGIN}
-                                                active={activeClass === ROUTE_END_POINTS.LOGIN}
-                                                onClick={() => handleClick(ROUTE_END_POINTS.LOGIN)}>
+                                            <NavLink className="text-dark nav-link" to={ROUTE_END_POINTS.LOGIN}>
                                                 Login
                                             </NavLink>
                                         </NavItem>

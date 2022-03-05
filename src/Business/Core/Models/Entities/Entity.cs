@@ -7,7 +7,7 @@ public abstract class Entity
     public Guid                 CreatedById      { get; set; }
     public DateTimeOffset       CreatedOn        { get; set; }
     
-    public virtual User         CreatedBy        { get; set; } = new User();
+    public virtual User?        CreatedBy        { get; set; }
 }
 
 public class Auditable : Entity

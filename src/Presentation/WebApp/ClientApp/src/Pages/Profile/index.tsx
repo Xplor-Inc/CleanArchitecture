@@ -150,7 +150,7 @@ const Profile = () => {
                                 value={user?.emailAddress}
                                 onChange={(e) => { SetProfile({ ...profile, user: { ...user, emailAddress: e.target.value } }) }} />
                         </div>
-                        <div className="col-md-3" style={{ paddingTop: '23px' }}>
+                        <div className="col-md-3 button-pt">
 
                             {isUpdating ?
                                 <button type="button" className="btn btn-outline-info" onClick={(e) => updateProfile(e)}> Update</button>

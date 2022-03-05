@@ -144,7 +144,7 @@ export default class Users extends Component<{}, IEnquiryState>{
                                         value={this.state.search.searchText}
                                         onChange={(e) => { this.setState({ search: { ...this.state.search, searchText: e.target.value } }) }} />
                                 </div>
-                                <div className="col-md-6" style={{ paddingTop: '20px' }}>
+                                <div className="col-md-6 button-pt">
                                     <button type="button" className="btn btn-outline-info" onClick={this.searchEnquiries}> Search</button>
                                     <button type="button" className="btn btn-outline-warning ms-3" onClick={()=>{this.setState({search:new SearchParams()}); this.getEnquiries(0, new SearchParams());}}> Reset</button>
                                </div>
