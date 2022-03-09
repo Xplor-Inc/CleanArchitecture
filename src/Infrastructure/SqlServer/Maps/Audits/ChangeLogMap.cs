@@ -7,10 +7,5 @@ public class ChangeLogMap : Map<ChangeLog>
     {
         entity
             .ToTable("ChangeLogs");
-
-        entity
-            .Property(x => x.Id)
-            .HasDefaultValueSql("newsequentialid()");
-
     }
 }

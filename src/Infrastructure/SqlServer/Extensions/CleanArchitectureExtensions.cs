@@ -11,7 +11,7 @@ public static class CleanArchitectureExtensions
 
     private static void SeedUsers(this CleanArchitectureContext context, IEncryption encryption)
     {
-        var id = Guid.NewGuid();
+        var id = 1;
         var salt = encryption.GenerateSalt();
         var user = new User
         {
@@ -20,7 +20,6 @@ public static class CleanArchitectureExtensions
             CreatedOn               = DateTimeOffset.Now,
             EmailAddress            = "test@app.com",
             FirstName               = "Admin",
-            Id                      = id,
             ImagePath               = "no-image.jpg",
             LastName                = "User",
             IsAccountActivated      = true,
@@ -28,7 +27,8 @@ public static class CleanArchitectureExtensions
             PasswordHash            = encryption.GenerateHash("1qazxsw2",salt),
             PasswordSalt            = salt,
             Role                    = UserRole.Admin,
-            SecurityStamp           = Guid.NewGuid().ToString("N")
+            SecurityStamp           = $"{Guid.NewGuid():N}",
+            UniqueId                = Guid.NewGuid()
         };
 
         if (!context.Users.Any())

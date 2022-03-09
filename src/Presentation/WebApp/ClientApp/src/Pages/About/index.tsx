@@ -1,4 +1,3 @@
-import React from "react";
 import PageTitle from "../Components/Navigation/PageTitle";
 
 const About = () => {

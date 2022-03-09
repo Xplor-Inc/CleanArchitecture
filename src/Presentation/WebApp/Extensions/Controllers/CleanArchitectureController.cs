@@ -16,5 +16,5 @@ public abstract class CleanArchitectureController : ControllerController
 
     protected virtual CleanArchitectureClaimsPrincipal CleanArchitectureClaims { get; set; }
     protected virtual UserRole? CurrentRoleType => CleanArchitectureClaims != null ? CleanArchitectureClaims.UserRole : User.RoleType();
-    protected virtual Guid      CurrentUserId   => CleanArchitectureClaims != null ? CleanArchitectureClaims.UserId : User.UserId();
+    protected virtual long      CurrentUserId   => CleanArchitectureClaims != null ? CleanArchitectureClaims.UserId : User.UserId();
 }

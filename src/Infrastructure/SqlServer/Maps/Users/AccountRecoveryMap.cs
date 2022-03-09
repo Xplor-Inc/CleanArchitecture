@@ -10,10 +10,6 @@ public class AccountRecoveryMap : Map<AccountRecovery>
             .ToTable("AccountRecoveries");
 
         entity
-            .Property(x => x.Id)
-            .HasDefaultValueSql("newsequentialid()");
-
-        entity
             .Property(e => e.ResetLink)
             .IsRequired()
             .HasMaxLength(StaticConfiguration.COMMAN_LENGTH);

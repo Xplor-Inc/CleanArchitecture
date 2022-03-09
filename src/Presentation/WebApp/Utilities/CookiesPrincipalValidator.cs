@@ -14,7 +14,7 @@ public static class PrincipalValidator
         }
         var securityStamp   = context.Principal?.Claims.FirstOrDefault(claim => claim.Type == ClaimTypes.AuthenticationInstant)?.Value;
         var dbContext       = context.HttpContext.RequestServices.GetRequiredService<CleanArchitectureContext>();
-        var user            = await dbContext.Users.FirstOrDefaultAsync(e => e.Id == Guid.Parse(userId));
+        var user            = await dbContext.Users.FirstOrDefaultAsync(e => e.Id == long.Parse(userId));
         if (user == null || user.DeletedOn.HasValue || user.SecurityStamp != securityStamp)
         {
             context.RejectPrincipal();

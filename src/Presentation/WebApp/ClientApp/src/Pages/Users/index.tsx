@@ -47,7 +47,7 @@ export default class Users extends Component<{}, { isUpdating: boolean, paging: 
                 firstName: '',
                 isActive: false,
                 lastName: '',
-                id: '',
+                uniqueId: '',
                 imagePath:''
             }
         }
@@ -155,7 +155,7 @@ export default class Users extends Component<{}, { isUpdating: boolean, paging: 
 
 
             this.setState({ isLoading: true })
-            var updateResponse = await Service.Delete<IResult<boolean>>(`${API_END_POINTS.USERS}/${user.id}`, {});
+            var updateResponse = await Service.Delete<IResult<boolean>>(`${API_END_POINTS.USERS}/${user.uniqueId}`, {});
 
             this.setState({ isLoading: false })
             if (updateResponse.hasErrors) {
@@ -177,7 +177,7 @@ export default class Users extends Component<{}, { isUpdating: boolean, paging: 
         if (this.state.isUpdating || window.confirm(`Are you sure to  ${user.isActive ? "Block" : "unblock"} ${user.firstName} ?`)) {
 
             var formData = {
-                id: user.id,
+                uniqueId: user.uniqueId,
                 isActive: (!user.isActive) ?? false,
                 firstName: user.firstName,
                 lastName: user.lastName,
@@ -186,7 +186,7 @@ export default class Users extends Component<{}, { isUpdating: boolean, paging: 
             if (this.state.isUpdating)
                 formData.isActive = user.isActive ?? false;
             this.setState({ isLoading: true })
-            var updateResponse = await Service.Put<IResult<boolean>>(`${API_END_POINTS.USERS}/${user.id}`, formData);
+            var updateResponse = await Service.Put<IResult<boolean>>(`${API_END_POINTS.USERS}/${user.uniqueId}`, formData);
             if (this.state.isUpdating) {
                 this.setState({
                     isUpdating: false,
@@ -284,7 +284,7 @@ export default class Users extends Component<{}, { isUpdating: boolean, paging: 
                             <tbody>
                                 {
                                     users.map((user, index) => {
-                                        return <tr key={user.id}>
+                                        return <tr key={user.uniqueId}>
                                             <td>{index + 1}</td>
                                             <td>{user.firstName}</td>
                                             <td>{user.lastName}</td>

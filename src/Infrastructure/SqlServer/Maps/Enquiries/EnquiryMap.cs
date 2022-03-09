@@ -10,10 +10,6 @@ public class EnquiryMap : Map<Enquiry>
             .ToTable("Enquiries");
 
         entity
-            .Property(x => x.Id)
-            .HasDefaultValueSql("newsequentialid()");
-
-        entity
             .Property(e => e.Email)
             .IsRequired()
             .HasMaxLength(StaticConfiguration.EMAIL_LENGTH);

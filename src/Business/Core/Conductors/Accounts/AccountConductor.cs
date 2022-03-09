@@ -78,7 +78,7 @@ public class AccountConductor : IAccountConductor
             r.AddErrors(userUpdateResult.Errors);
             return false;
         }
-        Logger.LogInformation($"Account is activated for user '{emailAddress}'");
+        Logger.LogInformation("Account is activated for user '{emailAddress}'", emailAddress);
         return false;
 
     }).Result;
@@ -106,7 +106,7 @@ public class AccountConductor : IAccountConductor
         }
         if (sendEmailResult.ResultObject) { return true; }
 
-        Logger.LogInformation($"Password recovery started for {emailAddress}");
+        Logger.LogInformation("Password recovery started for {emailAddress}", emailAddress);
         r.AddError("Unable to sent email due to technical errors");
         return false;
 
@@ -152,7 +152,7 @@ public class AccountConductor : IAccountConductor
         }
     }).Result;
 
-    public Result<User?> ChangePassword(Guid userId, string oldPassword, string newPassword) => Do<User?>.Try(r =>
+    public Result<User?> ChangePassword(long userId, string oldPassword, string newPassword) => Do<User?>.Try(r =>
     {
         var userResult = UserRepository.FindById(userId);
         if (userResult.HasErrors)
@@ -191,7 +191,7 @@ public class AccountConductor : IAccountConductor
         }
     }).Result;
 
-    public Result<User?> CreateAccount(User user, Guid createdById) => Do<User?>.Try(r =>
+    public Result<User?> CreateAccount(User user, long createdById) => Do<User?>.Try(r =>
     {
         var userResult = UserRepository.FindAll(e => e.EmailAddress == user.EmailAddress);
         if (userResult.HasErrors)
@@ -219,7 +219,7 @@ public class AccountConductor : IAccountConductor
         string emailbody = HtmlTemplate.AccountActivation(user);
         bool emailSent = EmailHandler.Send(emailbody, "Account Activation", new string[] { user.EmailAddress });
 
-        Logger.LogInformation($"Account Activation email sent successfully to {user.EmailAddress}");
+        Logger.LogInformation("Account Activation email sent successfully to {user.EmailAddress}", user.EmailAddress);
         return user;
     }).Result;
 
@@ -227,6 +227,7 @@ public class AccountConductor : IAccountConductor
     {
         Expression<Func<AccountRecovery, bool>> filter = w => w.ResetLink           == link
                                                            && w.DeletedOn           == null
+                                                           && w.User                != null
                                                            && w.User.EmailAddress   == emailAddress
                                                            && !w.PasswordResetSuccessfully;
         var accountRecoveryResult = AccountRecoveryRepository.FindAll(filter: filter, includeProperties: "User", orderBy: e => e.OrderBy("CreatedOn", "DESC"));
@@ -256,12 +257,15 @@ public class AccountConductor : IAccountConductor
             accountRecovery.PasswordResetSuccessfully   = true;
             accountRecovery.RetryCount                  = +1;
             accountRecovery.PasswordResetAt             = DateTime.Now;
-            accountRecovery.User.SecurityStamp          = $"{Guid.NewGuid():N}";
-            accountRecovery.User.PasswordSalt           = passwordSalt;
-            accountRecovery.User.PasswordHash           = Encryption.GenerateHash(password, passwordSalt);
-            accountRecovery.User.UpdatedById            = accountRecovery.User.Id;
-            accountRecovery.User.UpdatedOn              = DateTime.Now;
-            accountRecovery.User.IsAccountActivated     = true;
+            if (accountRecovery.User != null)
+            {
+                accountRecovery.User.SecurityStamp      = $"{Guid.NewGuid():N}";
+                accountRecovery.User.PasswordSalt       = passwordSalt;
+                accountRecovery.User.PasswordHash       = Encryption.GenerateHash(password, passwordSalt);
+                accountRecovery.User.UpdatedById        = accountRecovery.User.Id;
+                accountRecovery.User.UpdatedOn          = DateTime.Now;
+                accountRecovery.User.IsAccountActivated = true;
+            }
 
             var accountRecoveryUpdateResult = AccountRecoveryRepository.Update(accountRecovery, accountRecovery.UserId);
             if (accountRecoveryUpdateResult.HasErrors)
@@ -283,6 +287,7 @@ public class AccountConductor : IAccountConductor
     {
         Expression<Func<AccountRecovery, bool>> filter = w => w.ResetLink       == link
                                                       && w.DeletedOn            == null
+                                                      && w.User                 != null
                                                       && w.User.EmailAddress    == emailAddress
                                                       && !w.PasswordResetSuccessfully;
 
@@ -389,7 +394,7 @@ public class AccountConductor : IAccountConductor
                 return false;
             }
             
-            Logger.LogInformation($"Password recovery started for {user.EmailAddress}");
+            Logger.LogInformation("Password recovery started for {user.EmailAddress}", user.EmailAddress);
             return emailSent;
         }
         return false;
@@ -439,10 +444,11 @@ public class AccountConductor : IAccountConductor
             UserId          = user?.Id
         };
         
-        var userLoginCreateResult = UserLoginRepository.Create(userLogin, user?.Id ?? Guid.Empty);
+        var userLoginCreateResult = UserLoginRepository.Create(userLogin, user?.Id ?? 0);
         if (userLoginCreateResult.HasErrors)
         {
-            Logger.LogError(userLoginCreateResult.GetErrors());
+            var message = userLoginCreateResult.GetErrors();
+            Logger.LogError("UserLogin history creation failed with Error :{message}", message);
         }
     }
 

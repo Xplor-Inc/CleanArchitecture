@@ -10,10 +10,6 @@ public class UserMap : Map<User>
             .ToTable("Users");
 
         entity
-            .Property(x => x.Id)
-            .HasDefaultValueSql("newsequentialid()");
-
-        entity
             .Property(e => e.FirstName)
             .IsRequired()
             .HasMaxLength(StaticConfiguration.NAME_LENGTH);

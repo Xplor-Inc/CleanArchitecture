@@ -65,15 +65,15 @@ namespace CleanArchitecture.SqlServer
             try
             {
                 var modifiedEntities = ChangeTracker.Entries().Where(p => p.State == EntityState.Modified).ToList();
-                Guid actionBy = Guid.Empty;
+                long actionBy = 0;
                 foreach (var change in modifiedEntities)
                 {
                     string entityName = change.Entity.GetType().Name;
-                    Guid primaryKey = ((Entity)change.Entity).Id;
+                    long primaryKey = ((Entity)change.Entity).Id;
                     var changeLogs = new List<ChangeLog>();
                     if (change.CurrentValues["UpdatedById"] != null)
                     {
-                        actionBy = (Guid)change.CurrentValues["UpdatedById"];
+                        actionBy = (long)change.CurrentValues["UpdatedById"];
                     }
 
                     foreach (var prop in change.OriginalValues.Properties)

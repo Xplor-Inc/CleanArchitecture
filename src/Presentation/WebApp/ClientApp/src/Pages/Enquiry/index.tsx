@@ -106,7 +106,6 @@ export default class Users extends Component<{}, IEnquiryState>{
     postResolution = async (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {
         e.preventDefault();
         var formData = {
-            id: this.state.id,
             resolution: this.state.resolution
         };
 
@@ -178,7 +177,7 @@ export default class Users extends Component<{}, IEnquiryState>{
                                 <tbody>
                                     {
                                         enquiries.map((enquiry, index) => {
-                                            return <tr key={enquiry.id}>
+                                            return <tr key={enquiry.uniqueId}>
                                                 <td>{index + 1}</td>
                                                 <td>{enquiry.name}</td>
                                                 <td>{enquiry.email}</td>
@@ -191,7 +190,7 @@ export default class Users extends Component<{}, IEnquiryState>{
                                                             <a href="#edit" title='Edit' onClick={() => this.setState({viewResolution: enquiry.resolution})}>
                                                                 <FaEye size={'1.4rem'} color='#755139FF' />
                                                             </a> :
-                                                            <a href="#edit" title='Edit' onClick={() => this.setState({ isUpdating: true, id: enquiry.id, })}>
+                                                            <a href="#edit" title='Edit' onClick={() => this.setState({ isUpdating: true, id: enquiry.uniqueId, })}>
                                                                 <FaEdit size={'1.4rem'} color='#755139FF' />
                                                             </a>
                                                     }
@@ -221,7 +220,7 @@ export default class Users extends Component<{}, IEnquiryState>{
                                             value={resolution}
                                             onChange={(e) => { this.setState({ resolution: e.target.value }) }} />
                                     </div>
-                                    <div className="col-md-6" style={{ paddingTop: '20px' }}>
+                                    <div className="col-md-6 button-pt">
                                         <button type="button" className="btn btn-outline-info" onClick={(e) => this.postResolution(e)}> Update</button>
                                     </div>
                                 </div>

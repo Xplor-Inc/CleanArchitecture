@@ -8,7 +8,7 @@ public class AccountRecovery : Auditable
     public bool                 ResetLinkExpired            { get; set; }
     public DateTimeOffset       ResetLinkSentAt             { get; set; }
     public int                  RetryCount                  { get; set; }
-    public Guid                 UserId                      { get; set; }
+    public long                 UserId                      { get; set; }
 
-    public virtual User         User                        { get; set; } = new User();
+    public virtual User?        User                        { get; set; } 
 }

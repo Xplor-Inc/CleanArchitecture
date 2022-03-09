@@ -24,13 +24,14 @@ namespace CleanArchitecture.SqlServer.Migrations
 
             modelBuilder.Entity("CleanArchitecture.Core.Models.Entities.Audits.ChangeLog", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("newsequentialid()");
+                        .HasColumnType("bigint");
 
-                    b.Property<Guid>("CreatedById")
-                        .HasColumnType("uniqueidentifier");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<long>("CreatedById")
+                        .HasColumnType("bigint");
 
                     b.Property<DateTimeOffset>("CreatedOn")
                         .HasColumnType("datetimeoffset");
@@ -45,12 +46,15 @@ namespace CleanArchitecture.SqlServer.Migrations
                     b.Property<string>("OldValue")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("PrimaryKey")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<long>("PrimaryKey")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("PropertyName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UniqueId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -61,18 +65,19 @@ namespace CleanArchitecture.SqlServer.Migrations
 
             modelBuilder.Entity("CleanArchitecture.Core.Models.Entities.Audits.UserLogin", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("newsequentialid()");
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
 
                     b.Property<string>("Browser")
                         .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.Property<Guid?>("CreatedById")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<long?>("CreatedById")
+                        .HasColumnType("bigint");
 
                     b.Property<DateTimeOffset>("CreatedOn")
                         .HasColumnType("datetimeoffset");
@@ -106,8 +111,11 @@ namespace CleanArchitecture.SqlServer.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.Property<Guid?>("UserId")
+                    b.Property<Guid>("UniqueId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<long?>("UserId")
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -120,19 +128,20 @@ namespace CleanArchitecture.SqlServer.Migrations
 
             modelBuilder.Entity("CleanArchitecture.Core.Models.Entities.Enquiries.Enquiry", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("newsequentialid()");
+                        .HasColumnType("bigint");
 
-                    b.Property<Guid?>("CreatedById")
-                        .HasColumnType("uniqueidentifier");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<long?>("CreatedById")
+                        .HasColumnType("bigint");
 
                     b.Property<DateTimeOffset>("CreatedOn")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<Guid?>("DeletedById")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<long?>("DeletedById")
+                        .HasColumnType("bigint");
 
                     b.Property<DateTimeOffset?>("DeletedOn")
                         .HasColumnType("datetimeoffset");
@@ -164,8 +173,11 @@ namespace CleanArchitecture.SqlServer.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.Property<Guid?>("UpdatedById")
+                    b.Property<Guid>("UniqueId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<long?>("UpdatedById")
+                        .HasColumnType("bigint");
 
                     b.Property<DateTimeOffset?>("UpdatedOn")
                         .HasColumnType("datetimeoffset");
@@ -183,19 +195,20 @@ namespace CleanArchitecture.SqlServer.Migrations
 
             modelBuilder.Entity("CleanArchitecture.Core.Models.Entities.Users.AccountRecovery", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("newsequentialid()");
+                        .HasColumnType("bigint");
 
-                    b.Property<Guid>("CreatedById")
-                        .HasColumnType("uniqueidentifier");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<long>("CreatedById")
+                        .HasColumnType("bigint");
 
                     b.Property<DateTimeOffset>("CreatedOn")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<Guid?>("DeletedById")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<long?>("DeletedById")
+                        .HasColumnType("bigint");
 
                     b.Property<DateTimeOffset?>("DeletedOn")
                         .HasColumnType("datetimeoffset");
@@ -223,14 +236,17 @@ namespace CleanArchitecture.SqlServer.Migrations
                     b.Property<int>("RetryCount")
                         .HasColumnType("int");
 
-                    b.Property<Guid?>("UpdatedById")
+                    b.Property<Guid>("UniqueId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<long?>("UpdatedById")
+                        .HasColumnType("bigint");
 
                     b.Property<DateTimeOffset?>("UpdatedOn")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -247,22 +263,23 @@ namespace CleanArchitecture.SqlServer.Migrations
 
             modelBuilder.Entity("CleanArchitecture.Core.Models.Entities.Users.User", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("newsequentialid()");
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
 
                     b.Property<DateTimeOffset?>("AccountActivateDate")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<Guid>("CreatedById")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<long>("CreatedById")
+                        .HasColumnType("bigint");
 
                     b.Property<DateTimeOffset>("CreatedOn")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<Guid?>("DeletedById")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<long?>("DeletedById")
+                        .HasColumnType("bigint");
 
                     b.Property<DateTimeOffset?>("DeletedOn")
                         .HasColumnType("datetimeoffset");
@@ -317,8 +334,11 @@ namespace CleanArchitecture.SqlServer.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.Property<Guid?>("UpdatedById")
+                    b.Property<Guid>("UniqueId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<long?>("UpdatedById")
+                        .HasColumnType("bigint");
 
                     b.Property<DateTimeOffset?>("UpdatedOn")
                         .HasColumnType("datetimeoffset");

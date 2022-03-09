@@ -24,15 +24,16 @@ public class Repository<T> : IRepository<T>
 
     #region IRepository Implementation
 
-    public virtual Result<T> Create(T entity, Guid createdById)
+    public virtual Result<T> Create(T entity, long createdById)
     {
         var result = new Result<T>(entity);
 
         try
         {
             entity.CreatedOn    = DateTimeOffset.Now;
-            if (createdById != Guid.Empty)
-                entity.CreatedById = createdById;
+            entity.CreatedById  = createdById;
+            if (entity.UniqueId == Guid.Empty)
+                entity.UniqueId = Guid.NewGuid();
 
             Context.Add(entity);
             Context.DetectChanges(); // Note: New to EF Core, #SaveChanges, #Add and other methods do NOT automatically call DetectChanges
@@ -49,7 +50,7 @@ public class Repository<T> : IRepository<T>
     }
 
 
-    public virtual Result<List<T>> Create(IEnumerable<T> entities, Guid createdById)
+    public virtual Result<List<T>> Create(IEnumerable<T> entities, long createdById)
     {
         var result = new Result<List<T>>(new List<T>());
 
@@ -59,10 +60,11 @@ public class Repository<T> : IRepository<T>
 
             foreach (var entity in entities)
             {
-                entity.CreatedOn = DateTimeOffset.Now;
-                if (createdById != Guid.Empty)
-                    entity.CreatedById = createdById;
-                
+                entity.CreatedOn   = DateTimeOffset.Now; 
+                entity.CreatedById = createdById;
+                if (entity.UniqueId == Guid.Empty)
+                    entity.UniqueId = Guid.NewGuid();
+
                 Context.Add(entity);
                 result.ResultObject.Add(entity);
 
@@ -87,7 +89,7 @@ public class Repository<T> : IRepository<T>
 
         return result;
     }
-    public virtual Result<bool> Delete(Guid id, Guid deletedById, bool soft = true)
+    public virtual Result<bool> Delete(long id, long deletedById, bool soft = true)
     {
         Result<T> findResult;
         if (soft == false)
@@ -108,7 +110,7 @@ public class Repository<T> : IRepository<T>
 
         return Delete(findResult.ResultObject, deletedById, soft);
     }
-    public virtual Result<bool> Delete(T entity, Guid deletedById, bool soft = true)
+    public virtual Result<bool> Delete(T entity, long deletedById, bool soft = true)
     {
         var result = new Result<bool>(false);
 
@@ -166,7 +168,7 @@ public class Repository<T> : IRepository<T>
         return result;
     }
 
-    public virtual Result<T> FindById(Guid id, bool includeDeleted = false, params string[] includeProperties)
+    public virtual Result<T> FindById(long id, bool includeDeleted = false, params string[] includeProperties)
     {
         Result<T> result = new(default);
 
@@ -197,7 +199,7 @@ public class Repository<T> : IRepository<T>
 
         return result;
     }
-    public virtual Result<bool> Update(T entity, Guid updatedBy)
+    public virtual Result<bool> Update(T entity, long updatedBy)
     {
         var result = new Result<bool>(false);
 
@@ -225,7 +227,7 @@ public class Repository<T> : IRepository<T>
 
         return result;
     }
-    public virtual Result<bool> Update(IEnumerable<T> entities, Guid updatedBy)
+    public virtual Result<bool> Update(IEnumerable<T> entities, long updatedBy)
     {
         var result = new Result<bool>(false);
         try

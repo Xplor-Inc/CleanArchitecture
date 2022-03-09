@@ -26,7 +26,7 @@ public static class ClaimsPrincipalExtensions
 
     public static bool IsUnauthenticated(this ClaimsPrincipal principal) => !principal.IsAuthenticated();
 
-    public static Guid UserId(this ClaimsPrincipal principal)
+    public static long UserId(this ClaimsPrincipal principal)
     {
         if (principal == null)
         {
@@ -37,9 +37,9 @@ public static class ClaimsPrincipalExtensions
         var userIdClaim = principal.Claims?.FirstOrDefault(c => c.Type == ClaimTypes.PrimarySid);
         if (userIdClaim == null)
         {
-            return Guid.Empty;
+            return 0;
         }
 
-        return Guid.Parse(userIdClaim.Value);
+        return long.Parse(userIdClaim.Value);
     }
 }

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CleanArchitecture.SqlServer.Migrations
 {
-    public partial class Database_Setup : Migration
+    public partial class Initial_Database_Setup : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,8 @@ namespace CleanArchitecture.SqlServer.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValueSql: "newsequentialid()"),
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     AccountActivateDate = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
                     EmailAddress = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(28)", maxLength: 28, nullable: false),
@@ -27,11 +28,12 @@ namespace CleanArchitecture.SqlServer.Migrations
                     PasswordSalt = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
                     Role = table.Column<int>(type: "int", nullable: false),
                     SecurityStamp = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
-                    CreatedById = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CreatedById = table.Column<long>(type: "bigint", nullable: false),
                     CreatedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
-                    DeletedById = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UniqueId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    DeletedById = table.Column<long>(type: "bigint", nullable: true),
                     DeletedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
-                    UpdatedById = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UpdatedById = table.Column<long>(type: "bigint", nullable: true),
                     UpdatedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true)
                 },
                 constraints: table =>
@@ -61,7 +63,8 @@ namespace CleanArchitecture.SqlServer.Migrations
                 name: "AccountRecoveries",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValueSql: "newsequentialid()"),
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     EmailSent = table.Column<bool>(type: "bit", nullable: false),
                     PasswordResetAt = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
                     PasswordResetSuccessfully = table.Column<bool>(type: "bit", nullable: false),
@@ -69,12 +72,13 @@ namespace CleanArchitecture.SqlServer.Migrations
                     ResetLinkExpired = table.Column<bool>(type: "bit", nullable: false),
                     ResetLinkSentAt = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
                     RetryCount = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CreatedById = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<long>(type: "bigint", nullable: false),
+                    CreatedById = table.Column<long>(type: "bigint", nullable: false),
                     CreatedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
-                    DeletedById = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UniqueId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    DeletedById = table.Column<long>(type: "bigint", nullable: true),
                     DeletedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
-                    UpdatedById = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UpdatedById = table.Column<long>(type: "bigint", nullable: true),
                     UpdatedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true)
                 },
                 constraints: table =>
@@ -110,14 +114,16 @@ namespace CleanArchitecture.SqlServer.Migrations
                 name: "ChangeLogs",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValueSql: "newsequentialid()"),
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     EntityName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NewValue = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     OldValue = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PrimaryKey = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PrimaryKey = table.Column<long>(type: "bigint", nullable: false),
                     PropertyName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedById = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CreatedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false)
+                    CreatedById = table.Column<long>(type: "bigint", nullable: false),
+                    CreatedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
+                    UniqueId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -134,8 +140,9 @@ namespace CleanArchitecture.SqlServer.Migrations
                 name: "Enquiries",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValueSql: "newsequentialid()"),
-                    CreatedById = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CreatedById = table.Column<long>(type: "bigint", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     IsResolved = table.Column<bool>(type: "bit", nullable: false),
                     Message = table.Column<string>(type: "nvarchar(max)", maxLength: 8000, nullable: false),
@@ -143,9 +150,10 @@ namespace CleanArchitecture.SqlServer.Migrations
                     Resolution = table.Column<string>(type: "nvarchar(max)", maxLength: 8000, nullable: true),
                     Subject = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
                     CreatedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
-                    DeletedById = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UniqueId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    DeletedById = table.Column<long>(type: "bigint", nullable: true),
                     DeletedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
-                    UpdatedById = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UpdatedById = table.Column<long>(type: "bigint", nullable: true),
                     UpdatedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true)
                 },
                 constraints: table =>
@@ -175,9 +183,10 @@ namespace CleanArchitecture.SqlServer.Migrations
                 name: "UserLogins",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValueSql: "newsequentialid()"),
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Browser = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
-                    CreatedById = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    CreatedById = table.Column<long>(type: "bigint", nullable: true),
                     Device = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IP = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
@@ -185,8 +194,9 @@ namespace CleanArchitecture.SqlServer.Migrations
                     IsValidUser = table.Column<bool>(type: "bit", nullable: false),
                     OperatingSystem = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
                     ServerName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    CreatedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false)
+                    UserId = table.Column<long>(type: "bigint", nullable: true),
+                    CreatedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
+                    UniqueId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {

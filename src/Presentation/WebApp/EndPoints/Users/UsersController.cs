@@ -65,23 +65,6 @@ public class UsersController : CleanArchitectureController
         return Ok(dtos, rowCount);
     }
 
-    [HttpPut("{id:Guid}")]
-    public IActionResult GetById()
-    {
-        var userResult = UserConductor.FindById(CurrentUserId);
-        if (userResult.HasErrors)
-        {
-            return InternalError<UserDto>(userResult.Errors);
-        }
-        var user = userResult.ResultObject;
-        if (user == null)
-        {
-            return InternalError<UserDto>("Invalid user");
-        }
-        var userDto = Mapper.Map<UserDto>(user);
-
-        return Ok(userDto, null);
-    }
 
     [HttpPost()]
     public IActionResult Post([FromBody] UserDto dto)
@@ -97,25 +80,21 @@ public class UsersController : CleanArchitectureController
         return Ok(createResult.ResultObject);
     }
 
+
     [HttpPut("{id:Guid}")]
     public IActionResult Put(Guid id, [FromBody] UserDto dto)
     {
-        if(id == CurrentUserId)
-        {
-            return InternalError<UserDto>("Please update your details in profile page");
-        }
-
-        var userResult = UserConductor.FindById(id);
+        var userResult = UserConductor.FindAll(e => e.UniqueId == id);
         if (userResult.HasErrors)
         {
             return InternalError<UserDto>(userResult.Errors);
         }
-        var user = userResult.ResultObject;
+        var user = userResult.ResultObject.FirstOrDefault();
         if (user == null)
         {
             return InternalError<UserDto>("Invalid user");
         }
-
+        if (user.Id == CurrentUserId) { return InternalError<UserDto>("Please update your details in profile page"); }
         user.IsActive   = dto.IsActive;
         user.FirstName  = dto.FirstName;
         user.LastName   = dto.LastName;
@@ -128,19 +107,28 @@ public class UsersController : CleanArchitectureController
         return Ok(updateResult.ResultObject);
     }
 
+
     [HttpDelete("{id:Guid}")]
     public IActionResult Delete(Guid id)
     {
-        if (id == CurrentUserId)
+        var userResult = UserConductor.FindAll(e => e.UniqueId == id);
+        if (userResult.HasErrors)
         {
-            return InternalError<UserDto>("You can't delete self account");
+            return InternalError<UserDto>(userResult.Errors);
         }
+        var user = userResult.ResultObject.FirstOrDefault();
+        if (user == null)
+        {
+            return InternalError<UserDto>("Invalid user");
+        }
+        if (user.Id == CurrentUserId) { return InternalError<UserDto>("You can't delete self account"); }
 
-        var updateResult = UserConductor.Delete(id, CurrentUserId);
+        var updateResult = UserConductor.Delete(user, CurrentUserId);
         if (updateResult.HasErrors)
         {
             return InternalError<UserDto>(updateResult.Errors);
         }
+
         return Ok(updateResult.ResultObject);
     }
 }

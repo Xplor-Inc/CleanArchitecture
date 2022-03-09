@@ -8,18 +8,18 @@ namespace CleanArchitecture.WebApp.EndPoints.Enquiries;
 [Route("api/1.0/enquiries")]
 public class EnquiryController : CleanArchitectureController
 {
-    private IRepositoryConductor<Enquiry>    ContactConductor   { get; }
+    private IRepositoryConductor<Enquiry>    EnquiryConductor   { get; }
     private IEmailHandler                    EmailHandler       { get; }
     private IHtmlTemplate                    HtmlTemplate       { get; }
     private IMapper                          Mapper             { get; }
 
     public EnquiryController(
-        IRepositoryConductor<Enquiry>   contactConductor,
+        IRepositoryConductor<Enquiry>   enquiryConductor,
         IEmailHandler                   emailHandler,
         IHtmlTemplate                   htmlTemplate,
         IMapper                         mapper)
     {
-        ContactConductor    = contactConductor;
+        EnquiryConductor    = enquiryConductor;
         EmailHandler        = emailHandler;
         HtmlTemplate        = htmlTemplate;
         Mapper              = mapper;
@@ -45,13 +45,13 @@ public class EnquiryController : CleanArchitectureController
                                             || e.Subject.Contains(searchText));
         }
 
-        var enquiryResult = ContactConductor.FindAll(filter: predicate, e => e.OrderBy(sortBy, sortOrder), skip: skip, take: take);
+        var enquiryResult = EnquiryConductor.FindAll(filter: predicate, e => e.OrderBy(sortBy, sortOrder), skip: skip, take: take);
         if (enquiryResult.HasErrors)
         {
             return InternalError<EnquiryDto>(enquiryResult.Errors);
         }
         var enquiries = enquiryResult.ResultObject.ToList();
-        var rowCount = ContactConductor.FindAll(filter: predicate).ResultObject.Select(e => e.Id).Count();
+        var rowCount = EnquiryConductor.FindAll(filter: predicate).ResultObject.Select(e => e.Id).Count();
         var dtos = Mapper.Map<List<EnquiryDto>>(enquiries);
         return Ok(dtos, rowCount);
     }
@@ -61,7 +61,7 @@ public class EnquiryController : CleanArchitectureController
     {       
         var enquiry = Mapper.Map<Enquiry>(dto);
 
-        var createResult = ContactConductor.Create(enquiry, CurrentUserId);
+        var createResult = EnquiryConductor.Create(enquiry, CurrentUserId);
         if (createResult.HasErrors)
         {
             return InternalError<EnquiryDto>(createResult.Errors);
@@ -78,12 +78,12 @@ public class EnquiryController : CleanArchitectureController
     [HttpPut("{id:Guid}")]
     public IActionResult Put(Guid id, [FromBody] EnquiryResolutionDto dto)
     {
-        var enquiryResult = ContactConductor.FindById(id);
+        var enquiryResult = EnquiryConductor.FindAll(e=>e.UniqueId == id);
         if (enquiryResult.HasErrors)
         {
             return InternalError<EnquiryDto>(enquiryResult.Errors);
         }
-        var enquiry = enquiryResult.ResultObject;
+        var enquiry = enquiryResult.ResultObject.FirstOrDefault();
         if (enquiry == null)
         {
             return InternalError<EnquiryDto>("Invalid enquiry");
@@ -92,7 +92,7 @@ public class EnquiryController : CleanArchitectureController
         enquiry.IsResolved   = true;
         enquiry.Resolution   = dto.Resolution;
 
-        var updateResult = ContactConductor.Update(enquiry, CurrentUserId);
+        var updateResult = EnquiryConductor.Update(enquiry, CurrentUserId);
         if (updateResult.HasErrors)
         {
             return InternalError<EnquiryDto>(updateResult.Errors);
@@ -104,7 +104,18 @@ public class EnquiryController : CleanArchitectureController
     [HttpDelete("{id:Guid}")]
     public IActionResult Delete(Guid id)
     {
-        var updateResult = ContactConductor.Delete(id, CurrentUserId);
+        var enquiryResult = EnquiryConductor.FindAll(e => e.UniqueId == id);
+        if (enquiryResult.HasErrors)
+        {
+            return InternalError<EnquiryDto>(enquiryResult.Errors);
+        }
+        var enquiry = enquiryResult.ResultObject.FirstOrDefault();
+        if (enquiry == null)
+        {
+            return InternalError<EnquiryDto>("Invalid enquiry");
+        }
+
+        var updateResult = EnquiryConductor.Delete(enquiry, CurrentUserId);
         if (updateResult.HasErrors)
         {
             return InternalError<EnquiryDto>(updateResult.Errors);

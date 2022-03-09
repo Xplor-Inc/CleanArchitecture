@@ -10,10 +10,6 @@ public class UserLoginMap : Map<UserLogin>
             .ToTable("UserLogins");
 
         entity
-            .Property(x => x.Id)
-            .HasDefaultValueSql("newsequentialid()");
-
-        entity
             .Property(e => e.Browser)
             .IsRequired()
             .HasMaxLength(StaticConfiguration.COMMAN_LENGTH);

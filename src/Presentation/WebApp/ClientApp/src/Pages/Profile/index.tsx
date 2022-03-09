@@ -54,14 +54,14 @@ const Profile = () => {
             return;
         }
         var formData = {
-            id: user?.id,
+            uniqueId: user?.uniqueId,
             firstName: user?.firstName,
             lastName: user?.lastName,
             emailAddress:user?.emailAddress
         };
 
         SetProfile({ ...profile, isLoading: true })
-        var updateResponse = await Service.Put<IResult<IUserDto>>(`${API_END_POINTS.USER_PROFILE}/${user?.id}`, formData);
+        var updateResponse = await Service.Put<IResult<IUserDto>>(`${API_END_POINTS.USER_PROFILE}/${user?.uniqueId}`, formData);
 
         if (updateResponse.hasErrors) {
             toast.error(<ToastError errors={updateResponse.errors} />);

@@ -352,3 +352,4 @@ MigrationBackup/
 /src/Presentation/WebApp/ClientApp/package-lock.json
 /src/Presentation/WebApp/Properties
 /src/Presentation/WebApp/appsettings.Development.json
+/src/Presentation/WebApp/SecuredData/

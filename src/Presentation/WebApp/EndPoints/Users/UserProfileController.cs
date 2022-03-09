@@ -32,19 +32,17 @@ public class UserProfileController : CleanArchitectureController
     [HttpPut("{id:Guid}")]
     public IActionResult Post(Guid id, [FromBody] UserDto dto)
     {
-        if (id != CurrentUserId) { return BadRequest("Not allowd to update profile"); }
-
-        var userResult = UserConductor.FindById(id);
+        var userResult = UserConductor.FindAll(e => e.UniqueId == id);
         if (userResult.HasErrors)
         {
             return InternalError<UserDto>(userResult.Errors);
         }
-        var user = userResult.ResultObject;
+        var user = userResult.ResultObject.FirstOrDefault();
         if (user == null)
         {
             return InternalError<UserDto>("Invalid user");
         }
-
+        if (user.Id != CurrentUserId) { return BadRequest("Not allowd to update profile"); }
         user.FirstName = dto.FirstName;
         user.LastName  = dto.LastName;
 
